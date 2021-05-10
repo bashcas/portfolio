@@ -1,26 +1,60 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="wrapper">
+    <px-header :screenWidth="screenWidth" />
+    <router-view />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import PxHeader from "./components/PxHeader.vue";
 
 export default {
-  name: 'App',
+  name: "App",
+  data() {
+    return {
+      screenWidth: window.innerWidth,
+    };
+  },
   components: {
-    HelloWorld
-  }
-}
+    PxHeader,
+  },
+  methods: {
+    handleResize() {
+      this.screenWidth = window.innerWidth;
+    },
+  },
+  mounted() {
+    window.addEventListener("resize", this.handleResize);
+  },
+};
 </script>
 
-<style>
+<style lang="scss">
+@import "./utils/Vars.scss";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $background;
+}
+
+html {
+  font-size: 62.5%;
+}
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font;
 }
 </style>
