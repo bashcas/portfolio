@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main :style="cssVars">
     <div>
       <h1>
         Hi, <br />
@@ -16,6 +16,16 @@
 <script>
 export default {
   name: "Home",
+  props: {
+    fontColor: String,
+  },
+  computed: {
+    cssVars() {
+      return {
+        "--font-color": this.fontColor,
+      };
+    },
+  },
 };
 </script>
 
@@ -34,7 +44,7 @@ main {
 h1,
 p {
   font-family: $font;
-  color: $first-color-title;
+  color: var(--font-color);
 }
 
 h1 {

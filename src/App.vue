@@ -1,18 +1,25 @@
 <template>
   <div class="wrapper" :class="{ horizontal: screenWidth >= 1440 }">
-    <px-header :screenWidth="screenWidth" />
-    <router-view class="margin-left" />
+    <px-header
+      :screenWidth="screenWidth"
+      :mainColor="mainColor"
+      :iconsColor="iconsColor"
+    />
+    <router-view :fontColor="fontColor" class="margin-left" />
   </div>
 </template>
 
 <script>
 import PxHeader from "./components/PxHeader.vue";
-
+import colorVariables from "./utils/colorVariables";
 export default {
   name: "App",
   data() {
     return {
       screenWidth: window.innerWidth,
+      mainColor: colorVariables[0].mainColor,
+      fontColor: colorVariables[0].fontColor,
+      iconsColor: colorVariables[0].iconsColor,
     };
   },
   components: {
@@ -22,9 +29,26 @@ export default {
     handleResize() {
       this.screenWidth = window.innerWidth;
     },
+    changeColors() {
+      if (this.mainColor == colorVariables[0].mainColor) {
+        this.mainColor = colorVariables[1].mainColor;
+        this.fontColor = colorVariables[1].fontColor;
+        this.iconsColor = colorVariables[1].iconsColor;
+      } else {
+        this.mainColor = colorVariables[0].mainColor;
+        this.fontColor = colorVariables[0].fontColor;
+        this.iconsColor = colorVariables[0].iconsColor;
+      }
+    },
   },
   mounted() {
     window.addEventListener("resize", this.handleResize);
+  },
+
+  watch: {
+    $route() {
+      this.changeColors();
+    },
   },
 };
 </script>
@@ -60,13 +84,12 @@ h6 {
 
 .horizontal {
   display: flex;
-  flex-direction: column;
   align-items: flex-start;
 }
 
 @media only screen and (min-width: 1440px) {
   .margin-left {
-    margin-left: 150px;
+    margin-left: 100px;
   }
 }
 </style>
