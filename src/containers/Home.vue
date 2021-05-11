@@ -7,8 +7,7 @@
         web developer
       </h1>
       <p class="disclaimer">
-        (Focused on frontend <br />
-        development)
+        (Focused on frontend development)
       </p>
     </div>
   </main>
@@ -44,8 +43,18 @@ h1 {
 }
 
 .disclaimer {
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   margin-right: 45px;
+}
+
+@media only screen and (min-width: 412px) {
+  h1 {
+    font-size: 4.5rem;
+  }
+  .disclaimer {
+    font-size: 1.6rem;
+    margin-top: 10px;
+  }
 }
 
 @media only screen and (min-width: 768px) {
@@ -53,7 +62,7 @@ h1 {
     font-size: 8.5rem;
   }
   .disclaimer {
-    font-size: 4rem;
+    font-size: 3rem;
     margin-top: 20px;
   }
   main {

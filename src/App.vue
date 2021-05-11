@@ -1,7 +1,7 @@
 <template>
-  <div class="wrapper">
+  <div class="wrapper" :class="{ horizontal: screenWidth >= 1440 }">
     <px-header :screenWidth="screenWidth" />
-    <router-view />
+    <router-view class="margin-left" />
   </div>
 </template>
 
@@ -56,5 +56,17 @@ h4,
 h5,
 h6 {
   font-family: $font;
+}
+
+.horizontal {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+@media only screen and (min-width: 1440px) {
+  .margin-left {
+    margin-left: 150px;
+  }
 }
 </style>

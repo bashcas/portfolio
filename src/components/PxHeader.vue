@@ -1,6 +1,10 @@
 <template>
   <header>
-    <div class="menu-icon-container" :class="{ absolute: menuDeployed }">
+    <div
+      class="menu-icon-container"
+      :class="{ absolute: menuDeployed }"
+      v-if="screenWidth < 1024"
+    >
       <img
         src="../assets/images/menu-icon.svg"
         alt="menu-icon"
@@ -9,7 +13,7 @@
         v-if="screenWidth < 1024"
       />
     </div>
-    <nav class="menu-container" v-show="menuDeployed">
+    <nav class="menu-container" v-show="menuDeployed || screenWidth >= 1024">
       <ul class="menu">
         <li>
           <span v-if="screenWidth < 768">Home</span>
@@ -97,7 +101,7 @@ li {
 }
 
 .menu-icon {
-  width: 50px;
+  width: 40px;
   cursor: pointer;
 }
 
@@ -133,7 +137,7 @@ li {
     position: static;
   }
   .menu-icon {
-    width: 60px;
+    width: 40px;
   }
   .menu-container {
     height: initial;
@@ -144,8 +148,26 @@ li {
     justify-content: space-around;
   }
   .menu-img {
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  header {
+    width: auto;
+    height: 100%;
+  }
+  h1 {
+    line-height: 90px;
+  }
+  .menu {
+    flex-direction: column;
+    justify-content: center;
+    gap: 60px;
+  }
+  .menu-container {
+    height: 100%;
   }
 }
 </style>
