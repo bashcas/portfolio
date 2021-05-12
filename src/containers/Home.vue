@@ -1,13 +1,18 @@
 <template>
   <main :style="cssVars">
     <div>
+      <p class="greet">Hi, my name is</p>
       <h1>
-        Hi, <br />
-        I'm Sebastian, <br />
-        web developer
+        Sebastián Castañeda.
       </h1>
+      <h2>
+        I'm a frontend developer
+      </h2>
       <p class="disclaimer">
-        (Focused on frontend development)
+        I'm a Bogotá-based web developer who specializes in building functional
+        and beautiful websites interfaces, though, I also know some backend.
+        Currently, I'm an active systems engineering student at Universidad
+        Nacional de Colombia.
       </p>
     </div>
   </main>
@@ -30,53 +35,55 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../utils/Vars.scss";
-
 main {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 10px;
-  height: calc(100vh - 80px);
+  padding: 200px 25px 25px 25px;
+  margin: auto 0;
 }
 
 h1,
+h2 {
+  font-size: clamp(3.1rem, 8vw, 8rem);
+}
+
+h1,
+h2,
 p {
-  font-family: $font;
   color: var(--font-color);
 }
 
-h1 {
-  font-size: 4rem;
-  font-weight: 900;
+.greet {
+  font-size: 1.6rem;
+  font-family: "IBM Plex Mono", monospace;
+  color: #fff;
+  margin-bottom: 20px;
 }
 
 .disclaimer {
-  font-size: 1.5rem;
-  margin-right: 45px;
+  font-size: clamp(1.5rem, 2vw, 2rem);
+  max-width: 500px;
+  margin-top: 20px;
 }
 
 @media only screen and (min-width: 412px) {
-  h1 {
-    font-size: 4.5rem;
-  }
   .disclaimer {
-    font-size: 1.6rem;
     margin-top: 10px;
   }
 }
 
 @media only screen and (min-width: 768px) {
-  h1 {
-    font-size: 8.5rem;
-  }
   .disclaimer {
-    font-size: 3rem;
     margin-top: 20px;
   }
+}
+
+@media only screen and (min-width: 1440px) {
   main {
-    height: 100vh;
+    padding: 0px 25px 100px 80px;
   }
 }
 </style>

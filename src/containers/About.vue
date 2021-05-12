@@ -16,6 +16,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-@import "../utils/Vars.scss";
-</style>
+<style lang="scss" scoped></style>

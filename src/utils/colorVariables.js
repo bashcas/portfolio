@@ -8,7 +8,7 @@ const colors = [
   {
     theme: "purple",
     mainColor: "#4c02d6",
-    fontColor: "#b29dee",
+    fontColor: "#fff",
     iconsColor: "#fff",
   },
 ];

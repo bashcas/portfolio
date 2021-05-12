@@ -5,7 +5,7 @@
       :mainColor="mainColor"
       :iconsColor="iconsColor"
     />
-    <router-view :fontColor="fontColor" class="margin-left" />
+    <router-view :fontColor="fontColor" />
   </div>
 </template>
 
@@ -54,7 +54,8 @@ export default {
 </script>
 
 <style lang="scss">
-@import "./utils/Vars.scss";
+@import "./utils/Fonts.scss";
+$main-font: "Calibre", -apple-system, system-ui, sans-serif;
 * {
   margin: 0;
   padding: 0;
@@ -62,13 +63,12 @@ export default {
 }
 
 body {
-  background-color: $background;
+  background-color: #1e1f21;
 }
 
 html {
   font-size: 62.5%;
 }
-
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -79,17 +79,20 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: $font;
+  font-family: $main-font;
+  font-weight: 600;
+}
+p {
+  font-family: $main-font;
+  font-weight: 400;
+}
+
+main {
+  padding: 50px;
 }
 
 .horizontal {
   display: flex;
   align-items: flex-start;
-}
-
-@media only screen and (min-width: 1440px) {
-  .margin-left {
-    margin-left: 100px;
-  }
 }
 </style>
