@@ -1,16 +1,25 @@
 <template>
   <div class="wrapper" :class="{ horizontal: screenWidth >= 1440 }">
     <px-header
+      class="header"
       :screenWidth="screenWidth"
       :mainColor="mainColor"
       :iconsColor="iconsColor"
+      :fontColor="fontColor"
     />
-    <router-view :fontColor="fontColor" />
+    <router-view class="main" :fontColor="fontColor" :mainColor="mainColor" />
+    <px-nav
+      v-if="screenWidth < 768"
+      :mainColor="mainColor"
+      :iconsColor="iconsColor"
+      :fontColor="fontColor"
+    />
   </div>
 </template>
 
 <script>
 import PxHeader from "./components/PxHeader.vue";
+import PxNav from "./components/PxNav.vue";
 import colorVariables from "./utils/colorVariables";
 export default {
   name: "App",
@@ -24,6 +33,7 @@ export default {
   },
   components: {
     PxHeader,
+    PxNav,
   },
   methods: {
     handleResize() {
@@ -94,5 +104,14 @@ main {
 .horizontal {
   display: flex;
   align-items: flex-start;
+}
+.wrapper {
+  position: relative;
+}
+.header {
+  z-index: 2;
+}
+.main {
+  z-index: 1;
 }
 </style>

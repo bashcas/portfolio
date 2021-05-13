@@ -25,7 +25,11 @@
     <nav class="menu-container" v-show="menuDeployed || screenWidth >= 1024">
       <ul class="menu">
         <li>
-          <router-link v-if="screenWidth < 768" to="/">
+          <router-link
+            v-on:click="handleClickOnMenu()"
+            v-if="screenWidth < 768"
+            to="/"
+          >
             <span>Home</span>
           </router-link>
           <router-link v-else to="/">
@@ -52,7 +56,11 @@
           </router-link>
         </li>
         <li>
-          <router-link v-if="screenWidth < 768" to="/about">
+          <router-link
+            v-on:click="handleClickOnMenu()"
+            v-if="screenWidth < 768"
+            to="/about"
+          >
             <span>About</span>
           </router-link>
           <router-link v-else to="/about">
@@ -71,7 +79,11 @@
           </router-link>
         </li>
         <li>
-          <router-link v-if="screenWidth < 768" to="/projects">
+          <router-link
+            v-on:click="handleClickOnMenu()"
+            v-if="screenWidth < 768"
+            to="/projects"
+          >
             <span>Projects</span>
           </router-link>
           <router-link v-else to="/projects">
@@ -90,7 +102,11 @@
           </router-link>
         </li>
         <li>
-          <router-link v-if="screenWidth < 768" to="/contact">
+          <router-link
+            v-on:click="handleClickOnMenu()"
+            v-if="screenWidth < 768"
+            to="/contact"
+          >
             <span>Contact</span>
           </router-link>
           <router-link v-else to="/contact">
@@ -122,15 +138,11 @@ export default {
     screenWidth: Number,
     mainColor: String,
     iconsColor: String,
+    fontColor: String,
   },
   methods: {
     handleClickOnMenu() {
-      if (this.screenWidth < 768) {
-        this.menuDeployed = !this.menuDeployed;
-      } else {
-        this.menuDeployed = !this.menuDeployed;
-        //display menu on other way
-      }
+      this.menuDeployed = !this.menuDeployed;
     },
   },
   computed: {
@@ -138,6 +150,7 @@ export default {
       return {
         "--bg-color": this.mainColor,
         "--icons-color": this.iconsColor,
+        "--font-color": this.fontColor,
       };
     },
   },
@@ -150,16 +163,17 @@ span {
 }
 header {
   background-color: var(--bg-color);
-  width: 100%;
+  width: 100vw;
   position: fixed;
 }
 
 li {
+  font-family: "IBM Plex Mono", monospace;
   list-style: none;
-  color: #fff;
+  color: var(--font-color);
   a {
     text-decoration: none;
-    color: #fff;
+    color: var(--font-color);
   }
 }
 

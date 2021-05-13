@@ -2,7 +2,7 @@ const colors = [
   {
     theme: "blue",
     mainColor: "#03c4d5",
-    fontColor: "#c2daff",
+    fontColor: "#fff",
     iconsColor: "#000",
   },
   {
