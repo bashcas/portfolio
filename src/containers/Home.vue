@@ -1,5 +1,5 @@
 <template>
-  <main :style="cssVars">
+  <section :style="cssVars">
     <div>
       <p class="greet">Hi, my name is</p>
       <h1 class="heading">
@@ -10,7 +10,7 @@
       </h2>
       <p class="disclaimer">
         I'm a Bogotá-based web developer who specializes in building functional
-        and beautiful websites interfaces, though, I also know some backend.
+        and beautiful website interfaces. Although, I also know some backend.
         Currently, I'm an active systems engineering student at Universidad
         Nacional de Colombia.
       </p>
@@ -19,7 +19,7 @@
         <img class="arrow" src="../assets/images/left-arrow.png" alt="" />
       </div>
     </div>
-  </main>
+  </section>
 </template>
 
 <script>
@@ -58,7 +58,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-main {
+section {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -140,8 +140,9 @@ p::selection {
 }
 
 @media only screen and (min-width: 1440px) {
-  main {
-    padding: 0px 25px 0px 80px;
+  section {
+    padding: 0px 25px 0px 150px;
+    height: 100vh;
   }
 }
 </style>

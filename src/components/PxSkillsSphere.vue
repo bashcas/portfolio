@@ -1,0 +1,189 @@
+<template>
+  <canvas id="webgl"></canvas>
+</template>
+
+<script>
+import * as THREE from "three";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import font from "../assets/fonts/three/helvetiker_regular.typeface.json";
+let camera, scene, renderer, canvas, sphere, controls;
+console.log(THREE);
+export default {
+  name: "PxSkillsSphere",
+  data() {
+    return {
+      techologies: [
+        "",
+        "",
+        "Javascript",
+        "React",
+        "Vue",
+        "GSAP",
+        "NodeJS",
+        "CSS",
+        "Express",
+        "",
+        "npm",
+        "MongoDB",
+        "MySQL",
+        "three",
+        "Redux",
+        "PostgreSQL",
+        "webpack",
+        "Git",
+        "HTML",
+        "",
+        "",
+      ],
+      rotationX: -0.01,
+      rotationY: -0.01,
+      textMeshes: [],
+      requestAnimationFrameID: Number,
+    };
+  },
+  methods: {
+    init() {
+      console.log(this.rotationX);
+      console.log(this.rotationY);
+      canvas = document.querySelector("#webgl");
+
+      /**
+       * Scene
+       */
+      scene = new THREE.Scene();
+
+      /**
+       * Camera
+       */
+      camera = new THREE.PerspectiveCamera(
+        70,
+        canvas.parentElement.clientWidth / canvas.parentElement.clientHeight,
+        10,
+        200
+      );
+      camera.position.z = 60;
+
+      /**
+       * Objects
+       */
+      const sphereGeometry = new THREE.SphereGeometry(20, 8, 8);
+      const sphereMaterial = new THREE.MeshBasicMaterial({
+        wireframe: true,
+        transparent: true,
+        opacity: 0.05,
+      });
+      sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
+      console.log(sphere.rotation);
+      sphere.rotation.x = 0;
+      sphere.rotation.y = 0;
+      console.log(sphere.rotation);
+      scene.add(sphere);
+      const helvetikerFont = new THREE.Font(font);
+
+      const textMaterial = new THREE.MeshNormalMaterial();
+      const vertices = sphereGeometry.attributes.position.array;
+      for (let i = 0; i < this.techologies.length; i++) {
+        let i3 = i * 3;
+        const textGeometry = new THREE.TextGeometry(this.techologies[i], {
+          font: helvetikerFont,
+          size: 1.2,
+          height: 0.2,
+          curveSegments: 5,
+          bevelEnabled: true,
+          bevelThickness: 3,
+          bevelSize: 0.02,
+          bevelOffset: 0,
+          bevelSegments: 0,
+        });
+
+        const textMesh = new THREE.Mesh(textGeometry, textMaterial);
+        textMesh.position.set(
+          vertices[i3 * 4],
+          vertices[i3 * 4 + 1],
+          vertices[i3 * 4 + 2]
+        );
+
+        textGeometry.center();
+        scene.add(textMesh);
+        this.textMeshes.push(textMesh);
+      }
+
+      /**
+       * Renderer
+       */
+      renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
+      renderer.setSize(
+        canvas.parentElement.clientWidth,
+        canvas.parentElement.clientHeight
+      );
+    },
+    animate() {
+      sphere.rotation.y += this.rotationX;
+      sphere.rotation.x += this.rotationY;
+      sphere.geometry.attributes.position.needsUpdate = true;
+      this.trackPosition();
+      controls.update();
+      renderer.render(scene, camera);
+      this.requestAnimationFrameID = window.requestAnimationFrame(this.animate);
+    },
+    addControls() {
+      controls = new OrbitControls(camera, renderer.domElement);
+      controls.enableDamping = true;
+      controls.enableRotate = false;
+    },
+    trackPosition() {
+      this.textMeshes.forEach((mesh, index) => {
+        let i3 = index * 3;
+        let x = sphere.geometry.attributes.position.array[i3 * 4];
+        let y = sphere.geometry.attributes.position.array[i3 * 4 + 1];
+        let z = sphere.geometry.attributes.position.array[i3 * 4 + 2];
+        let vector = new THREE.Vector3(x, y, z);
+        vector.applyMatrix4(sphere.matrixWorld);
+
+        mesh.position.set(vector.x, vector.y, vector.z);
+      });
+    },
+
+    getMousePosition(canvas, event) {
+      const rect = canvas.getBoundingClientRect();
+      return {
+        x: (event.clientX - rect.left - rect.width / 2) / rect.width,
+        y: (event.clientY - rect.top - rect.height / 2) / rect.height,
+      };
+    },
+
+    rotateSphere(event) {
+      const position = this.getMousePosition(canvas, event);
+      this.rotationX = position.x * 0.02;
+      this.rotationY = position.y * 0.02;
+    },
+
+    handleResize() {
+      const width = canvas.parentElement.clientWidth;
+      const height = canvas.parentElement.clientHeight;
+
+      //Update renderer
+      renderer.setSize(width, height);
+
+      //Update camera
+      camera.aspect = width / height;
+      camera.updateProjectionMatrix();
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    },
+  },
+  mounted() {
+    this.init();
+    window.addEventListener("resize", this.handleResize);
+    canvas.addEventListener("mousemove", this.rotateSphere);
+    this.addControls();
+    this.animate();
+  },
+  beforeUnmount() {
+    window.removeEventListener("resize", this.handleResize);
+    window.removeEventListener("resize", this.handleResize);
+    window.cancelAnimationFrame(this.requestAnimationFrameID);
+  },
+};
+</script>
+
+<style></style>

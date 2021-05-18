@@ -91,9 +91,7 @@ export default {
     fontColor: String,
     iconsColor: String,
   },
-  created() {
-    console.log(this.$route);
-  },
+  created() {},
   computed: {
     cssVars() {
       return {
@@ -116,6 +114,7 @@ nav {
   bottom: 0;
   background-color: var(--main-color);
   padding: 5px;
+  z-index: 2;
 }
 ul {
   display: flex;

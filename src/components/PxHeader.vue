@@ -242,7 +242,7 @@ li {
   header {
     width: auto;
     height: 100vh;
-    position: static;
+    position: fixed;
   }
   h1 {
     line-height: 90px;

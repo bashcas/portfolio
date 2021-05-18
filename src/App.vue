@@ -7,7 +7,13 @@
       :iconsColor="iconsColor"
       :fontColor="fontColor"
     />
-    <router-view class="main" :fontColor="fontColor" :mainColor="mainColor" />
+    <main>
+      <router-view
+        class="section"
+        :fontColor="fontColor"
+        :mainColor="mainColor"
+      />
+    </main>
     <px-nav
       v-if="screenWidth < 768"
       :mainColor="mainColor"
@@ -97,10 +103,6 @@ p {
   font-weight: 400;
 }
 
-main {
-  padding: 50px;
-}
-
 .horizontal {
   display: flex;
   align-items: flex-start;
@@ -111,7 +113,11 @@ main {
 .header {
   z-index: 2;
 }
-.main {
+.section {
+  padding: 50px;
   z-index: 1;
+}
+main {
+  margin: auto 0;
 }
 </style>
