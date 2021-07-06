@@ -1,12 +1,12 @@
 const colors = [
   {
-    theme: "blue",
+    theme: "dark",
     mainColor: "#03c4d5",
     fontColor: "#fff",
     iconsColor: "#000",
   },
   {
-    theme: "purple",
+    theme: "light",
     mainColor: "#4c02d6",
     fontColor: "#fff",
     iconsColor: "#fff",

@@ -1,7 +1,7 @@
 <template>
   <section :style="cssVars">
     <div>
-      <h2>About me</h2>
+      <h2>Me, Myself and &amp;</h2>
       <p class="paragraph">
         I'm a web developer focused on the client-side of the web. My passion
         for coding began when I was still in my last year of high school. I
@@ -12,8 +12,8 @@
       <p class="paragraph">
         On the right side, you can appreciate some of the technologies with
         which I have worked. As I said earlier, my main area of interest is the
-        entire front-end spectrum. However, I also enjoy developing robust APIS
-        for applications.
+        entire front-end spectrum. However, I also enjoy developing on the
+        backend side :).
       </p>
       <br />
       <p class="paragraph">

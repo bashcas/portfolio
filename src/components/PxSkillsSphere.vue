@@ -7,7 +7,6 @@ import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import font from "../assets/fonts/three/helvetiker_regular.typeface.json";
 let camera, scene, renderer, canvas, sphere, controls;
-console.log(THREE);
 export default {
   name: "PxSkillsSphere",
   data() {
@@ -37,6 +36,7 @@ export default {
       ],
       rotationX: -0.01,
       rotationY: -0.01,
+      rotationZ: -0.01,
       textMeshes: [],
       requestAnimationFrameID: Number,
     };
@@ -61,7 +61,7 @@ export default {
         10,
         200
       );
-      camera.position.z = 60;
+      camera.position.z = 40;
 
       /**
        * Objects
@@ -120,6 +120,7 @@ export default {
     animate() {
       sphere.rotation.y += this.rotationX;
       sphere.rotation.x += this.rotationY;
+      sphere.rotation.z += this.rotationZ;
       sphere.geometry.attributes.position.needsUpdate = true;
       this.trackPosition();
       controls.update();
@@ -156,6 +157,7 @@ export default {
       const position = this.getMousePosition(canvas, event);
       this.rotationX = position.x * 0.02;
       this.rotationY = position.y * 0.02;
+      this.rotationZ = ((position.x + position.y) / 2) * 0.02;
     },
 
     handleResize() {
@@ -175,6 +177,7 @@ export default {
     this.init();
     window.addEventListener("resize", this.handleResize);
     canvas.addEventListener("mousemove", this.rotateSphere);
+    canvas.addEventListener("click", this.rotateSphere);
     this.addControls();
     this.animate();
   },

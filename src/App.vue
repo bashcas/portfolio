@@ -6,6 +6,7 @@
       :mainColor="mainColor"
       :iconsColor="iconsColor"
       :fontColor="fontColor"
+      :theme="theme"
     />
     <main>
       <router-view
@@ -14,18 +15,11 @@
         :mainColor="mainColor"
       />
     </main>
-    <px-nav
-      v-if="screenWidth < 768"
-      :mainColor="mainColor"
-      :iconsColor="iconsColor"
-      :fontColor="fontColor"
-    />
   </div>
 </template>
 
 <script>
 import PxHeader from "./components/PxHeader.vue";
-import PxNav from "./components/PxNav.vue";
 import colorVariables from "./utils/colorVariables";
 export default {
   name: "App",
@@ -35,11 +29,11 @@ export default {
       mainColor: colorVariables[0].mainColor,
       fontColor: colorVariables[0].fontColor,
       iconsColor: colorVariables[0].iconsColor,
+      theme: colorVariables[0].theme,
     };
   },
   components: {
     PxHeader,
-    PxNav,
   },
   methods: {
     handleResize() {
@@ -50,10 +44,12 @@ export default {
         this.mainColor = colorVariables[1].mainColor;
         this.fontColor = colorVariables[1].fontColor;
         this.iconsColor = colorVariables[1].iconsColor;
+        this.theme = colorVariables[1].theme;
       } else {
         this.mainColor = colorVariables[0].mainColor;
         this.fontColor = colorVariables[0].fontColor;
         this.iconsColor = colorVariables[0].iconsColor;
+        this.theme = colorVariables[0].theme;
       }
     },
   },
