@@ -99,7 +99,7 @@ header {
   justify-content: space-between;
 }
 
-.logo-container {
+.logo-container img {
   width: 45px;
 }
 
