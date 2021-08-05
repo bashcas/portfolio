@@ -1,72 +1,55 @@
 <template>
-  <div class="wrapper" :class="{ horizontal: screenWidth >= 1440 }">
-    <px-header
-      class="header"
-      :screenWidth="screenWidth"
-      :mainColor="mainColor"
-      :iconsColor="iconsColor"
-      :fontColor="fontColor"
-      :theme="theme"
-    />
-    <main>
-      <router-view
-        class="section"
-        :fontColor="fontColor"
-        :mainColor="mainColor"
-      />
-    </main>
-  </div>
+  <px-header2 class="header" :screenWidth="screenWidth" />
+  <social v-if="screenWidth >= 768" />
+  <main>
+    <div class="wrapper">
+      <home :screenWidth="screenWidth" class="section" />
+      <about :screenWidth="screenWidth" class="section" />
+      <projects :screenWidth="screenWidth" class="section" />
+      <contact :screenWidth="screenWidth" class="section" />
+    </div>
+  </main>
+  <email v-if="screenWidth >= 768" />
 </template>
 
 <script>
-import PxHeader from "./components/PxHeader.vue";
-import colorVariables from "./utils/colorVariables";
+import PxHeader2 from "./components/PxHeader2.vue";
+import Social from "./components/Social.vue";
+import Email from "./components/Email.vue";
+import Home from "./containers/Home.vue";
+import About from "./containers/About.vue";
+import Projects from "./containers/Projects.vue";
+import Contact from "./containers/Contact.vue";
 export default {
   name: "App",
   data() {
     return {
       screenWidth: window.innerWidth,
-      mainColor: colorVariables[0].mainColor,
-      fontColor: colorVariables[0].fontColor,
-      iconsColor: colorVariables[0].iconsColor,
-      theme: colorVariables[0].theme,
     };
   },
   components: {
-    PxHeader,
+    PxHeader2,
+    Home,
+    About,
+    Projects,
+    Contact,
+    Email,
+    Social,
   },
   methods: {
     handleResize() {
       this.screenWidth = window.innerWidth;
     },
-    changeColors() {
-      if (this.mainColor == colorVariables[0].mainColor) {
-        this.mainColor = colorVariables[1].mainColor;
-        this.fontColor = colorVariables[1].fontColor;
-        this.iconsColor = colorVariables[1].iconsColor;
-        this.theme = colorVariables[1].theme;
-      } else {
-        this.mainColor = colorVariables[0].mainColor;
-        this.fontColor = colorVariables[0].fontColor;
-        this.iconsColor = colorVariables[0].iconsColor;
-        this.theme = colorVariables[0].theme;
-      }
-    },
   },
   mounted() {
     window.addEventListener("resize", this.handleResize);
-  },
-
-  watch: {
-    $route() {
-      this.changeColors();
-    },
   },
 };
 </script>
 
 <style lang="scss">
 @import "./utils/Fonts.scss";
+@import "./utils/Colors.scss";
 $main-font: "Calibre", -apple-system, system-ui, sans-serif;
 * {
   margin: 0;
@@ -75,11 +58,22 @@ $main-font: "Calibre", -apple-system, system-ui, sans-serif;
 }
 
 body {
-  background-color: #1e1f21;
+  background-color: $background-color;
+}
+
+body::-webkit-scrollbar {
+  width: 4px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: $main-color;
+  border-radius: 5px;
+  height: 10px;
 }
 
 html {
   font-size: 62.5%;
+  scroll-behavior: smooth;
 }
 #app {
   -webkit-font-smoothing: antialiased;
@@ -93,27 +87,52 @@ h5,
 h6 {
   font-family: $main-font;
   font-weight: 600;
+  color: $main-color;
 }
-p {
+p,
+li {
   font-family: $main-font;
   font-weight: 400;
+  color: whitesmoke;
 }
 
-.horizontal {
-  display: flex;
-  align-items: flex-start;
+h1::selection,
+h2::selection,
+h3::selection,
+h4::selection,
+h5::selection,
+h6::selection,
+p::selection {
+  background-color: $main-color;
 }
-.wrapper {
-  position: relative;
-}
-.header {
-  z-index: 2;
-}
-.section {
-  padding: 50px;
-  z-index: 1;
-}
+
 main {
   margin: auto 0;
+  position: relative;
+}
+
+.wrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 50px;
+}
+
+@media only screen and(min-width: 768px) {
+  .wrapper {
+    padding: 0 75px;
+  }
+}
+@media only screen and(min-width: 1080px) {
+  .social {
+    left: 40px;
+  }
+  .email {
+    right: 40px;
+  }
+}
+@media only screen and(min-width: 1250px) {
+  .wrapper {
+    padding: 0 150px;
+  }
 }
 </style>

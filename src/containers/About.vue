@@ -1,24 +1,24 @@
 <template>
-  <section :style="cssVars">
+  <section id="about">
     <div>
-      <h2>Me, Myself and &amp;</h2>
+      <px-title content="Me, Myself and &amp;" h="h2"></px-title>
       <p class="paragraph">
         I'm a web developer focused on the client-side of the web. My passion
         for coding began when I was still in my last year of high school. I
-        started learning through courses and the development of personal
-        projects.
+        started learning through courses and the development of
+        <a href="#projects">personal projects.</a>
       </p>
       <br />
       <p class="paragraph">
-        On the right side, you can appreciate some of the technologies with
-        which I have worked. As I said earlier, my main area of interest is the
-        entire front-end spectrum. However, I also enjoy developing on the
-        backend side :).
+        {{ screenWidth >= 1000 ? "On the right side" : "Below" }} you can
+        appreciate some of the technologies with which I have worked. As I said
+        earlier, my main area of interest is the entire front-end spectrum.
+        However, I also enjoy developing on the backend side :)
       </p>
       <br />
       <p class="paragraph">
-        I like the technological world so much. I decided to go into web
-        development firstly because my first programming language was
+        I like the tech world so much. I decided to go into web development
+        firstly because the first programming language that I play with was
         Javascript, but I also have experience with other languages (at least
         their syntaxis) like Python, Java, Kotlin, C++, etc.
       </p>
@@ -31,63 +31,69 @@
 
 <script>
 import PxSkillsSphere from "../components/PxSkillsSphere";
+import PxTitle from "../components/PxTitle.vue";
 export default {
   name: "about",
   components: {
     PxSkillsSphere,
+    PxTitle,
   },
   props: {
-    fontColor: String,
-  },
-  computed: {
-    cssVars() {
-      return {
-        "--font-color": this.fontColor,
-      };
-    },
+    screenWidth: Number,
   },
 };
 </script>
 
 <style lang="scss" scoped>
+@import "../utils/Colors.scss";
 section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  padding: 200px 25px 25px 25px;
+  padding: 15em 2em 0 2em;
+  min-height: 100vh;
   margin: auto 0;
   position: relative;
-}
-h2 {
-  color: var(--font-color);
-  font-size: clamp(3.1rem, 8vw, 10rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .paragraph {
-  max-width: 600px;
-  color: var(--font-color);
+  color: $gray;
   font-size: clamp(1.5rem, 5vw, 2rem);
-  opacity: 0.8;
+}
+
+.paragraph a {
+  color: $main-color;
+  text-decoration: none;
 }
 
 .webgl-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 700px;
+  max-width: 400px;
   width: 100%;
   aspect-ratio: auto 1 / 1;
+  margin: 0 auto;
 }
 
-@media only screen and(min-width: 1440px) {
+@media only screen and (min-width: 768px) {
   section {
-    width: 100vw;
-    height: 100vh;
-    padding: 0px 25px 0px 150px;
+    min-height: 100vh;
+    padding: 0 2em;
+  }
+}
+
+@media only screen and(min-width: 1000px) {
+  section {
     flex-direction: row;
-    justify-content: space-between;
+  }
+  // the other way around
+  .webgl-container {
+    margin: 0;
+  }
+  .paragraph {
+    max-width: 500px;
   }
 }
 </style>

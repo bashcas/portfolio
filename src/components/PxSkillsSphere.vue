@@ -34,17 +34,15 @@ export default {
         "",
         "",
       ],
-      rotationX: -0.01,
-      rotationY: -0.01,
-      rotationZ: -0.01,
+      rotationX: -0.005,
+      rotationY: -0.005,
+      rotationZ: -0.005,
       textMeshes: [],
       requestAnimationFrameID: Number,
     };
   },
   methods: {
     init() {
-      console.log(this.rotationX);
-      console.log(this.rotationY);
       canvas = document.querySelector("#webgl");
 
       /**
@@ -64,13 +62,19 @@ export default {
       camera.position.z = 40;
 
       /**
+       * Lights
+       */
+      const light = new THREE.AmbientLight(0xffffff, 3.5);
+      scene.add(light);
+
+      /**
        * Objects
        */
       const sphereGeometry = new THREE.SphereGeometry(20, 8, 8);
-      const sphereMaterial = new THREE.MeshBasicMaterial({
+      const sphereMaterial = new THREE.MeshStandardMaterial({
         wireframe: true,
         transparent: true,
-        opacity: 0.05,
+        opacity: 0.025,
       });
       sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
       console.log(sphere.rotation);
@@ -80,7 +84,9 @@ export default {
       scene.add(sphere);
       const helvetikerFont = new THREE.Font(font);
 
-      const textMaterial = new THREE.MeshNormalMaterial();
+      const textMaterial = new THREE.MeshStandardMaterial({
+        color: "#ffca0b",
+      });
       const vertices = sphereGeometry.attributes.position.array;
       for (let i = 0; i < this.techologies.length; i++) {
         let i3 = i * 3;
@@ -102,7 +108,6 @@ export default {
           vertices[i3 * 4 + 1],
           vertices[i3 * 4 + 2]
         );
-
         textGeometry.center();
         scene.add(textMesh);
         this.textMeshes.push(textMesh);
@@ -111,11 +116,21 @@ export default {
       /**
        * Renderer
        */
-      renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
+      renderer = new THREE.WebGLRenderer({
+        canvas: canvas,
+        alpha: true,
+        antialias: true,
+      });
       renderer.setSize(
         canvas.parentElement.clientWidth,
         canvas.parentElement.clientHeight
       );
+
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.physicallyCorrectLights = true;
+      // renderer.outputEncoding = THREE.sRGBEncoding;
+      // renderer.toneMapping = THREE.ReinhardToneMapping;
+      renderer.toneMappingExposure = 3;
     },
     animate() {
       sphere.rotation.y += this.rotationX;
@@ -131,6 +146,7 @@ export default {
       controls = new OrbitControls(camera, renderer.domElement);
       controls.enableDamping = true;
       controls.enableRotate = false;
+      controls.enablePan = false;
     },
     trackPosition() {
       this.textMeshes.forEach((mesh, index) => {
@@ -182,7 +198,6 @@ export default {
     this.animate();
   },
   beforeUnmount() {
-    window.removeEventListener("resize", this.handleResize);
     window.removeEventListener("resize", this.handleResize);
     window.cancelAnimationFrame(this.requestAnimationFrameID);
   },

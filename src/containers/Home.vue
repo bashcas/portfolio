@@ -1,5 +1,5 @@
 <template>
-  <section :style="cssVars">
+  <section id="home">
     <div>
       <p class="greet">Hi, my name is</p>
       <h1 class="heading">
@@ -15,7 +15,9 @@
         Nacional de Colombia.
       </p>
       <div class="button-container">
-        <button class="call-to-action">Get In Touch</button>
+        <a href="#contact">
+          <button class="call-to-action">Get In Touch</button></a
+        >
         <img class="arrow" src="../assets/images/left-arrow.png" alt="" />
       </div>
     </div>
@@ -27,18 +29,6 @@ import gsap from "gsap";
 
 export default {
   name: "Home",
-  props: {
-    fontColor: String,
-    mainColor: String,
-  },
-  computed: {
-    cssVars() {
-      return {
-        "--font-color": this.fontColor,
-        "--main-color": this.mainColor,
-      };
-    },
-  },
   mounted() {
     const tl = gsap.timeline();
     tl.from(".greet", { x: 200, opacity: 0, duration: 1 });
@@ -58,57 +48,63 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../utils/Colors.scss";
 section {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 10px;
-  padding: 200px 25px 25px 25px;
   margin: auto 0;
+  min-height: 100vh;
 }
 
 h1,
 h2 {
-  font-size: clamp(3.1rem, 8vw, 8rem);
+  font-size: clamp(4rem, 8vw, 8rem);
 }
 
-h1,
-h2,
+h1 {
+  color: $lighter-gray;
+}
+
+h2 {
+  color: $gray;
+}
+
 p {
-  color: var(--font-color);
+  color: $gray;
 }
 
 h1::selection,
 h2::selection,
 p::selection {
-  background-color: var(--main-color);
+  background-color: $main-color;
 }
 
 .greet {
   font-size: 1.6rem;
   font-family: "IBM Plex Mono", monospace;
-  color: #fff;
+  color: $main-color;
   margin-bottom: 20px;
 }
 
 .disclaimer {
-  font-size: clamp(1.5rem, 2vw, 2rem);
+  font-size: clamp(1.8rem, 3vw, 2rem);
   max-width: 500px;
   margin-top: 20px;
-  opacity: 0.7;
 }
 
 .call-to-action {
   font-size: 1.5rem;
   font-family: "IBM Plex Mono", monospace;
-  padding: 15px 20px;
+  padding: 1.5em 2em;
   background-color: transparent;
-  color: white;
+  color: $main-color;
   outline: none;
-  border: 2px solid var(--main-color);
+  border: 1px solid $main-color;
   border-radius: 5px;
-  transition: background-color 2s;
+  transition: background-color 0.5s;
   cursor: pointer;
 }
 .button-container {
@@ -124,7 +120,7 @@ p::selection {
 }
 
 .call-to-action:hover {
-  background-color: var(--main-color);
+  background-color: rgba($main-color, 0.1);
 }
 
 @media only screen and (min-width: 412px) {
@@ -137,12 +133,8 @@ p::selection {
   .disclaimer {
     margin-top: 20px;
   }
-}
-
-@media only screen and (min-width: 1440px) {
   section {
-    padding: 0px 25px 0px 150px;
-    height: 100vh;
+    padding: 15em 2em 15em;
   }
 }
 </style>
