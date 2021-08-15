@@ -1,7 +1,7 @@
 <template>
   <section id="about">
     <div>
-      <px-title content="Me, Myself and &amp;" h="h2"></px-title>
+      <px-title content="Me, Myself and &amp;" h="h2" n="'1'"></px-title>
       <p class="paragraph">
         I'm a web developer focused on the client-side of the web. My passion
         for coding began when I was still in my last year of high school. I
@@ -47,7 +47,7 @@ export default {
 <style lang="scss" scoped>
 @import "../utils/Colors.scss";
 section {
-  padding: 15em 2em 0 2em;
+  padding: 2em 0;
   min-height: 100vh;
   margin: auto 0;
   position: relative;
@@ -60,18 +60,18 @@ section {
 .paragraph {
   color: $gray;
   font-size: clamp(1.5rem, 5vw, 2rem);
-}
-
-.paragraph a {
-  color: $main-color;
-  text-decoration: none;
+  a {
+    color: $main-color;
+    text-decoration: none;
+    font-size: clamp(1.4rem, 5vw, 1.9rem);
+  }
 }
 
 .webgl-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 400px;
+  max-width: 550px;
   width: 100%;
   aspect-ratio: auto 1 / 1;
   margin: 0 auto;
@@ -80,7 +80,6 @@ section {
 @media only screen and (min-width: 768px) {
   section {
     min-height: 100vh;
-    padding: 0 2em;
   }
 }
 

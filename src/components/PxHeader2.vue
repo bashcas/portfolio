@@ -1,5 +1,5 @@
 <template>
-  <header>
+  <header :class="[scrollDown ? 'hidden' : '', scrollTop ? 'top' : '']">
     <div class="logo-container">
       <img src="../assets/images/logo.png" alt="" />
     </div>
@@ -24,8 +24,8 @@
             href="#home"
             v-on:click="handleClickOnMenu()"
           >
-            <span class="decorator">00. &#60;</span><span>Home</span
-            ><span class="decorator">/&#62;</span>
+            <span class="number">00. </span>
+            <span>Home</span>
           </a>
         </li>
         <li class="menu-item">
@@ -34,8 +34,8 @@
             href="#about"
             v-on:click="handleClickOnMenu()"
           >
-            <span class="decorator">01. &#60;</span><span>About</span
-            ><span class="decorator">/&#62;</span>
+            <span class="number">01. </span>
+            <span>About</span>
           </a>
         </li>
         <li class="menu-item">
@@ -44,8 +44,8 @@
             href="#projects"
             v-on:click="handleClickOnMenu()"
           >
-            <span class="decorator">02. &#60;</span><span>Projects</span
-            ><span class="decorator">/&#62;</span>
+            <span class="number">02. </span>
+            <span>Projects</span>
           </a>
         </li>
         <li class="menu-item">
@@ -54,8 +54,8 @@
             href="#contact"
             v-on:click="handleClickOnMenu()"
           >
-            <span class="decorator">03. &#60;</span><span>Contact</span
-            ><span class="decorator">/&#62;</span>
+            <span class="number">03. </span>
+            <span>Contact</span>
           </a>
         </li>
       </ul>
@@ -70,10 +70,35 @@ export default {
     return {
       menuOpened: false,
       route: window.location.hash,
+      lastScrollTop: 0,
+      scrollDown: false,
+      scrollTop: true,
     };
   },
   props: {
     screenWidth: Number,
+  },
+  mounted() {
+    window.addEventListener(
+      "scroll",
+      () => {
+        let st = window.pageYOffset || document.documentElement.scrollTop;
+        if (st > this.lastScrollTop) {
+          this.scrollDown = true;
+          //down
+        } else {
+          this.scrollDown = false;
+          //up
+        }
+        this.lastScrollTop = st <= 0 ? 0 : st;
+        if (st == 0) {
+          this.scrollTop = true;
+        } else {
+          this.scrollTop = false;
+        }
+      },
+      false
+    );
   },
   methods: {
     handleClickOnMenu() {
@@ -94,9 +119,23 @@ export default {
 header {
   display: flex;
   position: fixed;
-  z-index: 1;
+  z-index: 6;
   width: 100vw;
   justify-content: space-between;
+  align-items: center;
+  padding: 0px 25px;
+  height: 100px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 10px 30px -10px $shadow;
+  backdrop-filter: blur(10px);
+}
+header.hidden {
+  transform: translateY(-100%);
+  // background-color: rgba()
+}
+header.top {
+  box-shadow: none;
+  backdrop-filter: blur(0px);
 }
 
 .logo-container img {
@@ -107,7 +146,7 @@ header {
   position: relative;
   z-index: 5;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   width: 40px;
   height: 40px;
@@ -118,52 +157,62 @@ header {
 .menu-btn__burguer {
   width: 25px;
   height: 3px;
-  background: $gray;
+  background: $main-color;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(255, 101, 47, 0.2);
   transition: all 0.5s ease-in-out;
-}
-.menu-btn__burguer::before,
-.menu-btn__burguer::after {
-  content: "";
-  position: absolute;
-  width: 25px;
-  height: 3px;
-  background: $gray;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(255, 101, 47, 0.2);
-  transition: all 0.5s ease-in-out;
-}
-
-.menu-btn__burguer::before {
-  transform: translateY(-8px);
-}
-
-.menu-btn__burguer::after {
-  transform: translateY(8px);
+  &:before {
+    content: "";
+    position: absolute;
+    width: 35px;
+    height: 3px;
+    background: $main-color;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(255, 101, 47, 0.2);
+    transition: all 0.5s ease-in-out;
+    right: 0;
+    transform: translateY(-8px);
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 3px;
+    background: $main-color;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(255, 101, 47, 0.2);
+    transition: all 0.5s ease-in-out;
+    right: 0;
+    transform: translateY(8px);
+  }
 }
 /* ANIMATION */
-.menu-btn.open .menu-btn__burguer {
-  transform: translateX(-25px);
-  background: transparent;
-  box-shadow: none;
-}
-
-.menu-btn.open .menu-btn__burguer::before {
-  transform: rotate(45deg) translate(17px, -17px);
-}
-
-.menu-btn.open .menu-btn__burguer::after {
-  transform: rotate(-45deg) translate(17px, 17px);
+.menu-btn.open {
+  .menu-btn__burguer {
+    transform: translateX(-25px);
+    background: transparent;
+    box-shadow: none;
+    background: $gray;
+    &:before {
+      transform: rotate(45deg) translate(17px, -17px);
+      background: $gray;
+    }
+    &:after {
+      transform: rotate(-45deg) translate(17px, 17px);
+      background: $gray;
+    }
+  }
 }
 
 .menu-container {
   position: absolute;
+  top: 0;
+  left: 0;
   height: 100vh;
   width: 100vw;
-  transform: translate(100%, -100%) scale(0);
+  transform: translate(100%, -150%) scale(0);
   background-color: $main-color;
-  border-radius: 50%;
+  border-radius: 100%;
   transition: all 0.7s ease-in-out;
   display: flex;
   flex-direction: column;
@@ -186,17 +235,15 @@ header {
 }
 .menu-item a {
   text-decoration: none;
-  color: black;
+  color: $background-color;
   font-family: monospace;
   font-size: 2.4rem;
 }
 
-.menu-item a.decorator {
-  color: white;
-}
-
-.menu-item a.highlighted {
-  color: white;
+@media only screen and(min-width: 480px) {
+  header {
+    padding: 0px 50px;
+  }
 }
 
 @media only screen and (min-width: 768px) {
@@ -218,15 +265,15 @@ header {
   .menu-item a {
     color: $gray;
     font-size: 1.4rem;
-  }
-  .menu-item a:hover {
-    color: $main-color;
-  }
-  .menu-item a.highlighted {
-    color: $main-color;
-  }
-  .menu-item a .decorator {
-    color: $main-color;
+    &:hover {
+      color: $main-color;
+    }
+    .highlighted {
+      color: $main-color;
+    }
+    .number {
+      color: $main-color;
+    }
   }
 }
 </style>

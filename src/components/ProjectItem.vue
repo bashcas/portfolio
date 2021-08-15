@@ -60,6 +60,8 @@ export default {
 
 <style lang="scss" scoped>
 @import "../utils/Colors.scss";
+$main-font: "Calibre", -apple-system, system-ui, sans-serif;
+$monospace: "SF Mono", monospace;
 .container {
   position: relative;
   padding: 2em 3em;
@@ -95,7 +97,7 @@ h3 {
 }
 
 .featured {
-  font-family: monospace;
+  font-family: $monospace;
   color: $main-color;
   font-size: 1.5rem;
   margin: 10px 0;
@@ -114,7 +116,7 @@ h3 {
 }
 
 .technologies li {
-  font-family: monospace;
+  font-family: $monospace;
   color: $lighter-gray;
   font-size: 1.3rem;
 }

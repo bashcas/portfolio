@@ -1,6 +1,6 @@
 <template>
   <section id="projects">
-    <px-title h="h2" content="Some Things that I've Built"></px-title>
+    <px-title h="h2" content="Some of my Work" n="'2'"></px-title>
     <ul class="projects-list">
       <project-item
         title="Snake game"
@@ -53,8 +53,10 @@ export default {
 </script>
 <style scoped lang="scss">
 @import "../utils/Colors.scss";
+
 section {
-  padding: 15em 2em 0 2em;
+  padding: 2em 0;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -71,6 +73,9 @@ section {
 @media only screen and(min-width: 768px) {
   h2::after {
     width: 200px;
+  }
+  section {
+    padding: 15em 2em 0 2em;
   }
 }
 
