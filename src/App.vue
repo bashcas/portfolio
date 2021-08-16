@@ -1,29 +1,37 @@
 <template>
   <px-header2 class="header" :screenWidth="screenWidth" />
   <social v-if="screenWidth >= 768" />
-  <main>
+  <preloader :loading="loading" v-if="loading" />
+  <main ref="main">
     <div class="wrapper">
-      <home :screenWidth="screenWidth" class="section" />
+      <home
+        data-aos="fade"
+        data-aos-delay="50"
+        data-aos-duration="1000"
+        data-aos-anchor-placement="top-center"
+        :screenWidth="screenWidth"
+        class="section"
+      />
       <about
-        data-aos="fade-up"
-        data-aos-delay="70"
-        data-aos-duration="1500"
+        data-aos="fade"
+        data-aos-delay="50"
+        data-aos-duration="1000"
         data-aos-anchor-placement="top-center"
         :screenWidth="screenWidth"
         class="section"
       />
       <projects
-        data-aos="fade-up"
-        data-aos-delay="70"
-        data-aos-duration="1500"
+        data-aos="fade"
+        data-aos-delay="50"
+        data-aos-duration="1000"
         data-aos-anchor-placement="top-center"
         :screenWidth="screenWidth"
         class="section"
       />
       <contact
-        data-aos="fade-up"
-        data-aos-delay="70"
-        data-aos-duration="1500"
+        data-aos="fade"
+        data-aos-delay="50"
+        data-aos-duration="1000"
         data-aos-anchor-placement="top-center"
         :screenWidth="screenWidth"
         class="section"
@@ -37,6 +45,7 @@
 import PxHeader2 from "./components/PxHeader2.vue";
 import Social from "./components/Social.vue";
 import Email from "./components/Email.vue";
+import Preloader from "./containers/Preloader.vue";
 import Home from "./containers/Home.vue";
 import About from "./containers/About.vue";
 import Projects from "./containers/Projects.vue";
@@ -48,6 +57,7 @@ export default {
   data() {
     return {
       screenWidth: window.innerWidth,
+      loading: true,
     };
   },
   components: {
@@ -58,6 +68,7 @@ export default {
     Contact,
     Email,
     Social,
+    Preloader,
   },
   methods: {
     handleResize() {
@@ -65,8 +76,15 @@ export default {
     },
   },
   mounted() {
-    window.addEventListener("resize", this.handleResize);
-    AOS.init();
+    document.onreadystatechange = () => {
+      if (document.readyState == "complete") {
+        this.loading = false;
+        this.$refs.main.classList.add("loaded");
+        document.body.classList.add("loaded");
+        AOS.init({ easing: "ease-out-quint" });
+      }
+      window.addEventListener("resize", this.handleResize);
+    };
   },
 };
 </script>
@@ -124,6 +142,10 @@ $monospace: "SF Mono", monospace;
 body {
   background-color: $background-color;
   overflow-x: hidden;
+  overflow-y: hidden;
+}
+body.loaded {
+  overflow-y: auto;
 }
 
 body::-webkit-scrollbar {
@@ -140,6 +162,7 @@ html {
   font-size: 62.5%;
   scroll-behavior: smooth;
 }
+
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -174,6 +197,12 @@ p::selection {
 main {
   margin: auto 0;
   position: relative;
+  opacity: 0;
+  transition: opacity 0.5s linear;
+}
+main.loaded {
+  display: initial;
+  opacity: 1;
 }
 
 span,

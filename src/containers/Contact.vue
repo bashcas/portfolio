@@ -131,6 +131,11 @@ section {
   position: relative;
   grid-area: 4 / 4 / 4 / -1;
   cursor: pointer;
+  transition: 0.2s all ease-in-out;
+  &:hover {
+    color: $main-color;
+    outline: 1px solid $main-color;
+  }
 }
 .form div {
   overflow: hidden;

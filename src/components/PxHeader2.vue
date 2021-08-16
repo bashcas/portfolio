@@ -58,6 +58,9 @@
             <span>Contact</span>
           </a>
         </li>
+        <li class="menu-item">
+          <button class="resume">Resume</button>
+        </li>
       </ul>
     </nav>
   </header>
@@ -103,19 +106,18 @@ export default {
   methods: {
     handleClickOnMenu() {
       this.menuOpened = !this.menuOpened;
-      console.log(window.location);
       setTimeout(() => {
         this.route = window.location.hash;
       }, 0);
     },
   },
-
-  watch: {},
 };
 </script>
 
 <style scoped lang="scss">
 @import "../utils/Colors.scss";
+$main-font: "Calibre", -apple-system, system-ui, sans-serif;
+$monospace: "SF Mono", monospace;
 header {
   display: flex;
   position: fixed;
@@ -240,6 +242,22 @@ header.top {
   font-size: 2.4rem;
 }
 
+.resume {
+  font-size: 1.3rem;
+  font-family: $monospace;
+  padding: 1em 2em;
+  background-color: transparent;
+  color: $main-color;
+  outline: none;
+  border: 1px solid $main-color;
+  border-radius: 5px;
+  transition: background-color 0.5s;
+  cursor: pointer;
+  &:hover {
+    background-color: rgba($main-color, 0.1);
+  }
+}
+
 @media only screen and(min-width: 480px) {
   header {
     padding: 0px 50px;
@@ -264,7 +282,7 @@ header.top {
   }
   .menu-item a {
     color: $gray;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     &:hover {
       color: $main-color;
     }

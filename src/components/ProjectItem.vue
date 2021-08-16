@@ -127,16 +127,17 @@ h3 {
 }
 
 .project-links a img {
-  filter: invert(92%) sepia(78%) saturate(2484%) hue-rotate(178deg)
-    brightness(107%) contrast(104%);
+  filter: invert(91%) sepia(19%) saturate(619%) hue-rotate(329deg)
+    brightness(104%) contrast(106%);
+
   cursor: pointer;
   transition: transform 0.5s ease-in-out;
 }
 
 .project-links a img:hover {
   transform: translate(2px, -3px);
-  filter: invert(96%) sepia(48%) saturate(879%) hue-rotate(83deg)
-    brightness(94%) contrast(116%);
+  filter: invert(85%) sepia(45%) saturate(2777%) hue-rotate(351deg)
+    brightness(104%) contrast(101%);
 }
 
 @media only screen and(min-width: 768px) {

@@ -10,10 +10,10 @@
   "dependencies": {
     "aos": "^2.3.4",
     "core-js": "^3.6.5",
-    "gsap": "^3.6.1",
     "three": "^0.128.0",
     "vue": "^3.0.0",
-    "vue-router": "^3.5.2"
+    "vue-router": "^3.5.2",
+    "vue-spinner": "^1.0.4"
   },
   "devDependencies": {
     "@types/glidejs__glide": "^3.4.0",

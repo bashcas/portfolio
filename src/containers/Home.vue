@@ -31,7 +31,6 @@
 </template>
 
 <script>
-import gsap from "gsap";
 import Particle from "../utils/Particle";
 
 export default {
@@ -48,20 +47,6 @@ export default {
     };
   },
   mounted() {
-    //Animation
-    const tl = gsap.timeline();
-    tl.from(".greet", { x: 200, opacity: 0, duration: 1 });
-    tl.from(".heading", {
-      y: 100,
-      duration: 1.5,
-      opacity: 0,
-      stagger: 0.2,
-      ease: "sine",
-    });
-    tl.from(".disclaimer", { x: -200, duration: 1.5, opacity: 0 });
-    tl.from(".call-to-action", { opacity: 0, duration: 1.5 });
-    tl.from(".arrow", { opacity: 0 });
-    tl.to(".arrow", { x: 10, duration: 0.5, repeat: -1, yoyo: true }, "-=1");
     //canvas background
     this.$refs.canvas.width = window.innerWidth;
     this.$refs.canvas.height = window.innerHeight;

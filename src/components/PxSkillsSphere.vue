@@ -44,7 +44,6 @@ export default {
   methods: {
     init() {
       canvas = document.querySelector("#webgl");
-
       /**
        * Scene
        */
@@ -77,10 +76,8 @@ export default {
         opacity: 0.025,
       });
       sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
-      console.log(sphere.rotation);
       sphere.rotation.x = 0;
       sphere.rotation.y = 0;
-      console.log(sphere.rotation);
       scene.add(sphere);
       const helvetikerFont = new THREE.Font(font);
 

@@ -23,8 +23,8 @@
         their syntaxis) like Python, Java, Kotlin, C++, etc.
       </p>
     </div>
-    <div class="webgl-container">
-      <px-skills-sphere />
+    <div class="webgl-container" ref="webgl">
+      <px-skills-sphere :size="size" />
     </div>
   </section>
 </template>
@@ -34,12 +34,20 @@ import PxSkillsSphere from "../components/PxSkillsSphere";
 import PxTitle from "../components/PxTitle.vue";
 export default {
   name: "about",
+  data() {
+    return {
+      size: 250,
+    };
+  },
   components: {
     PxSkillsSphere,
     PxTitle,
   },
   props: {
     screenWidth: Number,
+  },
+  mounted() {
+    this.size = this.$refs.webgl.clientWidth;
   },
 };
 </script>
