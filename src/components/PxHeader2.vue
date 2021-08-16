@@ -297,7 +297,10 @@ header.top {
   }
 
   .resume {
-    background-color: $main-color;
+    background-color: transparent;
+    font-size: 1.3rem;
+    border: 1px solid $main-color;
+    padding: 1em 2em;
     &:hover {
       background-color: rgba($main-color, 0.1);
     }
