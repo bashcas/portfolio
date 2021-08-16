@@ -154,6 +154,7 @@ header.top {
   height: 40px;
   cursor: pointer;
   transition: all 0.5s ease-in-out;
+  overflow: hidden;
 }
 
 .menu-btn__burguer {
@@ -191,17 +192,19 @@ header.top {
 /* ANIMATION */
 .menu-btn.open {
   .menu-btn__burguer {
-    transform: translateX(-25px);
+    transform: translate(-25px);
+    width: 0px;
     background: transparent;
     box-shadow: none;
-    background: $gray;
+    background: $background-color;
     &:before {
       transform: rotate(45deg) translate(17px, -17px);
-      background: $gray;
+      background: $background-color;
     }
     &:after {
       transform: rotate(-45deg) translate(17px, 17px);
-      background: $gray;
+      width: 35px;
+      background: $background-color;
     }
   }
 }
@@ -243,18 +246,17 @@ header.top {
 }
 
 .resume {
-  font-size: 1.3rem;
+  font-size: 2.4rem;
   font-family: $monospace;
-  padding: 1em 2em;
-  background-color: transparent;
+  padding: 0.7em 2em;
+  background-color: $background-color;
   color: $main-color;
   outline: none;
-  border: 1px solid $main-color;
   border-radius: 5px;
   transition: background-color 0.5s;
   cursor: pointer;
   &:hover {
-    background-color: rgba($main-color, 0.1);
+    background-color: rgba($background-color, 0.1);
   }
 }
 
@@ -291,6 +293,13 @@ header.top {
     }
     .number {
       color: $main-color;
+    }
+  }
+
+  .resume {
+    background-color: $main-color;
+    &:hover {
+      background-color: rgba($main-color, 0.1);
     }
   }
 }
