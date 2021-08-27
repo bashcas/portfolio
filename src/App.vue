@@ -1,14 +1,13 @@
 <template>
-  <px-header2 class="header" :screenWidth="screenWidth" />
+  <px-header2 v-on:menu="blur" class="header" :screenWidth="screenWidth" />
   <social v-if="screenWidth >= 768" />
   <preloader :loading="loading" v-if="loading" />
   <main ref="main">
-    <div class="wrapper">
+    <div class="wrapper" ref="wrapper">
       <home
         data-aos="fade"
         data-aos-delay="50"
         data-aos-duration="1000"
-        data-aos-anchor-placement="top-center"
         :screenWidth="screenWidth"
         class="section"
       />
@@ -16,7 +15,6 @@
         data-aos="fade"
         data-aos-delay="50"
         data-aos-duration="1000"
-        data-aos-anchor-placement="top-center"
         :screenWidth="screenWidth"
         class="section"
       />
@@ -24,7 +22,6 @@
         data-aos="fade"
         data-aos-delay="50"
         data-aos-duration="1000"
-        data-aos-anchor-placement="top-center"
         :screenWidth="screenWidth"
         class="section"
       />
@@ -32,7 +29,6 @@
         data-aos="fade"
         data-aos-delay="50"
         data-aos-duration="1000"
-        data-aos-anchor-placement="top-center"
         :screenWidth="screenWidth"
         class="section"
       />
@@ -73,6 +69,10 @@ export default {
   methods: {
     handleResize() {
       this.screenWidth = window.innerWidth;
+    },
+    blur() {
+      console.log("event");
+      this.$refs.wrapper.classList.toggle("blur");
     },
   },
   mounted() {
@@ -204,8 +204,7 @@ main.loaded {
   display: initial;
   opacity: 1;
 }
-
-span,
+main span,
 a {
   font-family: $monospace, monospace;
 }
@@ -214,6 +213,9 @@ a {
   max-width: 1440px;
   margin: 0 auto;
   padding: 0 25px;
+}
+.wrapper.blur {
+  filter: blur(2px);
 }
 
 @media only screen and(min-width: 480px) {

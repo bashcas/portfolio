@@ -109,6 +109,7 @@ export default {
       setTimeout(() => {
         this.route = window.location.hash;
       }, 0);
+      this.$emit("menu");
     },
   },
 };
@@ -211,12 +212,11 @@ header.top {
 .menu-container {
   position: absolute;
   top: 0;
-  left: 0;
+  right: 0;
   height: 100vh;
-  width: 100vw;
-  transform: translate(100%, -150%) scale(0);
+  width: 80vw;
+  transform: translate(100%);
   background-color: $main-color;
-  border-radius: 100%;
   transition: all 0.7s ease-in-out;
   display: flex;
   flex-direction: column;
@@ -225,8 +225,7 @@ header.top {
 }
 
 .menu-container.open {
-  transform: translate(0, 0);
-  border-radius: 0;
+  transform: translate(0);
 }
 
 .menu {

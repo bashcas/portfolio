@@ -83,6 +83,7 @@ section {
   width: 100%;
   aspect-ratio: auto 1 / 1;
   margin: 0 auto;
+  pointer-events: none;
 }
 
 @media only screen and (min-width: 768px) {
@@ -98,6 +99,7 @@ section {
   // the other way around
   .webgl-container {
     margin: 0;
+    pointer-events: auto;
   }
   .paragraph {
     max-width: 500px;

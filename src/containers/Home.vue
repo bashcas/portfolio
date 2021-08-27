@@ -189,6 +189,17 @@ p::selection {
     brightness(108%) contrast(101%);
   margin-left: 20px;
   width: 20px;
+  animation: arrow-bounce 1s linear infinite;
+  animation-direction: alternate;
+}
+@keyframes arrow-bounce {
+  from {
+    transform: translateX(0%);
+  }
+
+  to {
+    transform: translateX(50%);
+  }
 }
 
 #canvas {
