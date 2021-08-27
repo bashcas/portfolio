@@ -28,10 +28,13 @@
       </ul>
       <div class="project-links" :class="{ end: index % 2 == 0 }">
         <a :href="github"
-          ><img src="../assets/images/github.png" alt="github logo"
+          ><img
+            src="https://img.icons8.com/ios/50/000000/github-2.png"
+            alt="github-logo"
         /></a>
         <a :href="web"
-          ><img src="../assets/images/globe.png" alt="globe image"
+          ><img
+            src="https://img.icons8.com/ios/50/000000/external-link-squared.png"
         /></a>
       </div>
     </div>
@@ -85,7 +88,6 @@ $monospace: "SF Mono", monospace;
   left: 0;
   width: 100%;
   height: 100%;
-  filter: blur(1px);
   cursor: pointer;
   border-radius: 4px;
 }
@@ -129,7 +131,7 @@ h3 {
 .project-links a img {
   filter: invert(91%) sepia(19%) saturate(619%) hue-rotate(329deg)
     brightness(104%) contrast(106%);
-
+  width: 32px;
   cursor: pointer;
   transition: transform 0.5s ease-in-out;
 }

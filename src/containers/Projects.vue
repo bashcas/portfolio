@@ -13,7 +13,7 @@
         title="Snake game"
         description="A web app for visualizing personalized Spotify data. View your top artists, top tracks, recently played tracks, and detailed audio information about each track. Create and save new playlists of recommended tracks based on your existing playlists and more."
         :technologies="['React.js', 'Spotify web api', 'Node.js']"
-        img="pexels.jpg"
+        img="Image1.png"
         :index="2"
       />
       <project-item
@@ -27,7 +27,7 @@
         title="Snake game"
         description="A web app for visualizing personalized Spotify data. View your top artists, top tracks, recently played tracks, and detailed audio information about each track. Create and save new playlists of recommended tracks based on your existing playlists and more."
         :technologies="['React.js', 'Spotify web api', 'Node.js']"
-        img="pexels.jpg"
+        img="Image1.png"
         :index="4"
       />
       <project-item
@@ -56,7 +56,7 @@ export default {
 
 section {
   padding: 2em 0;
-
+  padding-top: 12em;
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -193,7 +193,6 @@ header.top {
 .menu-btn.open {
   .menu-btn__burguer {
     transform: translate(-25px);
-    width: 0px;
     background: transparent;
     box-shadow: none;
     background: $background-color;
@@ -202,8 +201,8 @@ header.top {
       background: $background-color;
     }
     &:after {
-      transform: rotate(-45deg) translate(17px, 17px);
-      width: 35px;
+      transform: rotate(-45deg) translate(10px, 10px) scaleX(2.33);
+      // width: 35px;
       background: $background-color;
     }
   }
