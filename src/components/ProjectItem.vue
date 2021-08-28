@@ -7,11 +7,14 @@
       @mouseleave="filter = true"
     >
       <div class="project-image-container">
-        <img
-          :src="require(`../assets/images/${img}`)"
-          alt="img"
-          :class="{ grayscale_filter: filter }"
-        />
+        <div class="project-image-gray-filter">
+          <img
+            :src="require(`../assets/images/${img}`)"
+            alt="img"
+            :class="{ grayscale_filter: filter }"
+          />
+        </div>
+
         <a class="project-link" :href="web"></a>
       </div>
     </div>
@@ -80,6 +83,7 @@ $monospace: "SF Mono", monospace;
   width: 100%;
   height: 100%;
   cursor: pointer;
+  background-color: rgba($main-color, 0.2);
 }
 .project-image img {
   content: "";
@@ -90,6 +94,25 @@ $monospace: "SF Mono", monospace;
   height: 100%;
   cursor: pointer;
   border-radius: 4px;
+}
+
+.project-image:hover {
+  background-color: transparent;
+  .project-image-gray-filter {
+    filter: grayscale(0%) brightness(100%);
+  }
+}
+
+.project-image-container {
+  position: relative;
+  mix-blend-mode: multiply;
+  width: 100%;
+  height: 100%;
+}
+.project-image-gray-filter {
+  filter: grayscale(100%) contrast(1) brightness(90%);
+  width: 100%;
+  height: 100%;
 }
 
 h3 {
@@ -181,9 +204,6 @@ h3 {
     background-color: $main-color;
     transition: background-color 0.2s ease-in-out;
   }
-  .project-image:hover {
-    background-color: transparent;
-  }
 
   .project-image.backwards {
     grid-area: 1 / 7 / -1 / -1;
@@ -197,13 +217,6 @@ h3 {
     object-fit: cover;
     height: auto;
     filter: blur(0);
-  }
-  .grayscale_filter {
-    filter: grayscale(100%) contrast(1) brightness(90%);
-  }
-  .project-image-container {
-    position: relative;
-    mix-blend-mode: multiply;
   }
   .project-link {
     position: absolute;

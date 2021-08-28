@@ -54,6 +54,7 @@ export default {
     return {
       screenWidth: window.innerWidth,
       loading: true,
+      menuOpened: false,
     };
   },
   components: {
@@ -71,8 +72,17 @@ export default {
       this.screenWidth = window.innerWidth;
     },
     blur() {
-      console.log("event");
       this.$refs.wrapper.classList.toggle("blur");
+      this.menuOpened = !this.menuOpened;
+      if (this.menuOpened) {
+        document.body.style.position = "fixed";
+        document.body.style.top = `-${window.scrollY}px`;
+      } else {
+        const scrollY = document.body.style.top;
+        document.body.style.position = "";
+        document.body.style.top = "";
+        window.scrollTo(0, parseInt(scrollY || "0") * -1);
+      }
     },
   },
   mounted() {

@@ -134,7 +134,6 @@ header {
 }
 header.hidden {
   transform: translateY(-100%);
-  // background-color: rgba()
 }
 header.top {
   box-shadow: none;
@@ -196,16 +195,27 @@ header.top {
     transform: translate(-25px);
     background: transparent;
     box-shadow: none;
-    background: $background-color;
+
     &:before {
       transform: rotate(45deg) translate(17px, -17px);
-      background: $background-color;
     }
     &:after {
       transform: rotate(-45deg) translate(10px, 10px) scaleX(2.33);
-      // width: 35px;
-      background: $background-color;
     }
+  }
+}
+
+.menu-item a {
+  color: $gray;
+  font-size: 1.3rem;
+  &:hover {
+    color: $main-color;
+  }
+  .highlighted {
+    color: $main-color;
+  }
+  .number {
+    color: $main-color;
   }
 }
 
@@ -216,8 +226,8 @@ header.top {
   height: 100vh;
   width: 80vw;
   transform: translate(100%);
-  background-color: $main-color;
-  transition: all 0.7s ease-in-out;
+  background-color: $background-color-light;
+  transition: all 0.1s ease-in-out;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -238,23 +248,21 @@ header.top {
 }
 .menu-item a {
   text-decoration: none;
-  color: $background-color;
+  color: $gray;
   font-family: monospace;
   font-size: 2.4rem;
 }
 
 .resume {
-  font-size: 2.4rem;
-  font-family: $monospace;
-  padding: 0.7em 2em;
-  background-color: $background-color;
   color: $main-color;
-  outline: none;
-  border-radius: 5px;
-  transition: background-color 0.5s;
-  cursor: pointer;
+  background-color: transparent;
+  font-size: 1.4rem;
+  font-family: $monospace;
+  border: 1px solid $main-color;
+  border-radius: 1px;
+  padding: 1em 2em;
   &:hover {
-    background-color: rgba($background-color, 0.1);
+    background-color: rgba($main-color, 0.1);
   }
 }
 
@@ -281,7 +289,6 @@ header.top {
     gap: 5em;
   }
   .menu-item a {
-    color: $gray;
     font-size: 1.3rem;
     &:hover {
       color: $main-color;
@@ -291,16 +298,6 @@ header.top {
     }
     .number {
       color: $main-color;
-    }
-  }
-
-  .resume {
-    background-color: transparent;
-    font-size: 1.3rem;
-    border: 1px solid $main-color;
-    padding: 1em 2em;
-    &:hover {
-      background-color: rgba($main-color, 0.1);
     }
   }
 }
