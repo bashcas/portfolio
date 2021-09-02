@@ -30,12 +30,12 @@
 </template>
 <script>
 export default {
-  name: "Social",
-};
+  name: "Social"
+}
 </script>
 
 <style lang="scss" scoped>
-@import "../utils/Colors.scss";
+@import "~/assets/styles/Colors.scss";
 .social {
   position: fixed;
   width: 40px;
@@ -53,8 +53,8 @@ export default {
 }
 .social ul li img {
   width: 22px;
-  filter: invert(92%) sepia(14%) saturate(747%) hue-rotate(335deg)
-    brightness(105%) contrast(101%);
+  filter: invert(98%) sepia(78%) saturate(283%) hue-rotate(79deg)
+    brightness(103%) contrast(105%);
 
   transition: all 0.3s ease-in-out;
 }
@@ -62,9 +62,9 @@ export default {
   padding: 10px;
 }
 .social ul li img:hover {
-  filter: invert(87%) sepia(23%) saturate(3381%) hue-rotate(348deg)
-    brightness(101%) contrast(104%);
-  transform: translateY(-4px);
+  filter: invert(82%) sepia(32%) saturate(6215%) hue-rotate(111deg)
+    brightness(95%) contrast(101%);
+  transform: translateY(-7px);
 }
 
 .social ul::after {

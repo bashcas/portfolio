@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import Particle from "../utils/Particle";
+import Particle from "~/assets/js/Particle"
 
 export default {
   name: "Home",
@@ -39,29 +39,29 @@ export default {
     return {
       mouse: {
         x: null,
-        y: null,
+        y: null
       },
       particles: [],
       hue: 0,
-      ctx: null,
-    };
+      ctx: null
+    }
   },
   mounted() {
     //canvas background
-    this.$refs.canvas.width = window.innerWidth;
-    this.$refs.canvas.height = window.innerHeight;
-    this.ctx = this.$refs.canvas.getContext("2d");
-    this.animate();
+    this.$refs.canvas.width = window.innerWidth
+    this.$refs.canvas.height = window.innerHeight
+    this.ctx = this.$refs.canvas.getContext("2d")
+    this.animate()
     window.addEventListener("resize", () => {
-      this.$refs.canvas.width = window.innerWidth;
-      this.$refs.canvas.height = window.innerHeight;
-    });
+      this.$refs.canvas.width = window.innerWidth
+      this.$refs.canvas.height = window.innerHeight
+    })
   },
 
   methods: {
     handleMouseClick: function(e) {
-      this.mouse.x = e.x;
-      this.mouse.y = e.y;
+      this.mouse.x = e.x
+      this.mouse.y = e.y
       for (let i = 0; i < 5; i++) {
         this.particles.push(
           new Particle(
@@ -69,19 +69,19 @@ export default {
             this.mouse.y,
             "hsl(" + this.hue + ", 100%, 50%)"
           )
-        );
+        )
       }
     },
     handleMouseMove: function(e) {
-      this.mouse.x = e.x;
-      this.mouse.y = e.y;
+      this.mouse.x = e.x
+      this.mouse.y = e.y
       this.particles.push(
         new Particle(
           this.mouse.x,
           this.mouse.y,
-          `hsl(47, 100%, ${(this.hue % 100) + 20}%)`
+          `hsl(163, 100%, ${(this.hue % 100) + 20}%)`
         )
-      );
+      )
     },
     handleResize() {},
     animate() {
@@ -90,30 +90,30 @@ export default {
         0,
         this.$refs.canvas.width,
         this.$refs.canvas.height
-      );
+      )
       // For trails
       // ctx.fillStyle = "rgba(0, 0, 0, 0.02)"
       // ctx.fillRect(0, 0, canvas.width, canvas.height)
-      this.handleParticles();
-      this.hue++;
-      requestAnimationFrame(this.animate);
+      this.handleParticles()
+      this.hue++
+      requestAnimationFrame(this.animate)
     },
     handleParticles() {
       for (let i = 0; i < this.particles.length; i++) {
-        this.particles[i].update();
-        this.particles[i].draw(this.ctx);
+        this.particles[i].update()
+        this.particles[i].draw(this.ctx)
         if (this.particles[i].size <= 0.3) {
-          this.particles.splice(i, 1);
-          i--;
+          this.particles.splice(i, 1)
+          i--
         }
       }
-    },
-  },
-};
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>
-@import "../utils/Colors.scss";
+@import "~/assets/styles/Colors.scss";
 $main-font: "Calibre", -apple-system, system-ui, sans-serif;
 $monospace: "SF Mono", monospace;
 section {

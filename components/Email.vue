@@ -10,12 +10,12 @@
 
 <script>
 export default {
-  name: "Email",
-};
+  name: "Email"
+}
 </script>
 
 <style lang="scss" scoped>
-@import "../utils/Colors.scss";
+@import "~/assets/styles/Colors.scss";
 .email {
   width: 40px;
   position: fixed;

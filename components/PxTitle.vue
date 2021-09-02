@@ -13,20 +13,20 @@ export default {
   props: {
     h: String,
     content: String,
-    n: String,
+    n: String
   },
   computed: {
     injectNumber() {
       return {
-        "--number": this.n,
-      };
-    },
-  },
-};
+        "--number": this.n
+      }
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>
-@import "../utils/Colors.scss";
+@import "~/assets/styles/Colors.scss";
 $main-font: "Calibre", -apple-system, system-ui, sans-serif;
 $monospace: "SF Mono", monospace;
 h1,

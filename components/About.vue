@@ -30,30 +30,24 @@
 </template>
 
 <script>
-import PxSkillsSphere from "../components/PxSkillsSphere";
-import PxTitle from "../components/PxTitle.vue";
 export default {
   name: "about",
   data() {
     return {
-      size: 250,
-    };
-  },
-  components: {
-    PxSkillsSphere,
-    PxTitle,
+      size: 250
+    }
   },
   props: {
-    screenWidth: Number,
+    screenWidth: Number
   },
   mounted() {
-    this.size = this.$refs.webgl.clientWidth;
-  },
-};
+    this.size = this.$refs.webgl.clientWidth
+  }
+}
 </script>
 
 <style lang="scss" scoped>
-@import "../utils/Colors.scss";
+@import "~/assets/styles/Colors.scss";
 section {
   padding: 2em 0;
   min-height: 100vh;
@@ -70,8 +64,11 @@ section {
   font-size: clamp(1.5rem, 5vw, 2rem);
   a {
     color: $main-color;
+    font-family: "Calibre", -apple-system, system-ui, sans-serif;
     text-decoration: none;
-    font-size: clamp(1.4rem, 5vw, 1.9rem);
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
 

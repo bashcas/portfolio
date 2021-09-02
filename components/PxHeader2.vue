@@ -1,7 +1,7 @@
 <template>
   <header :class="[scrollDown ? 'hidden' : '', scrollTop ? 'top' : '']">
     <div class="logo-container">
-      <img src="../assets/images/logo.png" alt="" />
+      <img src="../assets/images/logo.svg" alt="logo" />
     </div>
     <div
       class="menu-btn"
@@ -19,7 +19,7 @@
         <li class="menu-item">
           <a
             :class="{
-              highlighted: route == '#home' || route == '',
+              highlighted: route == '#home' || route == ''
             }"
             href="#home"
             v-on:click="handleClickOnMenu()"
@@ -59,7 +59,7 @@
           </a>
         </li>
         <li class="menu-item">
-          <button class="resume">Resume</button>
+          <a href="/resume.pdf"><button class="resume">Resume</button></a>
         </li>
       </ul>
     </nav>
@@ -72,51 +72,51 @@ export default {
   data() {
     return {
       menuOpened: false,
-      route: window.location.hash,
+      route: "/",
       lastScrollTop: 0,
       scrollDown: false,
-      scrollTop: true,
-    };
+      scrollTop: true
+    }
   },
   props: {
-    screenWidth: Number,
+    screenWidth: Number
   },
   mounted() {
     window.addEventListener(
       "scroll",
       () => {
-        let st = window.pageYOffset || document.documentElement.scrollTop;
+        let st = window.pageYOffset || document.documentElement.scrollTop
         if (st > this.lastScrollTop) {
-          this.scrollDown = true;
+          this.scrollDown = true
           //down
         } else {
-          this.scrollDown = false;
+          this.scrollDown = false
           //up
         }
-        this.lastScrollTop = st <= 0 ? 0 : st;
+        this.lastScrollTop = st <= 0 ? 0 : st
         if (st == 0) {
-          this.scrollTop = true;
+          this.scrollTop = true
         } else {
-          this.scrollTop = false;
+          this.scrollTop = false
         }
       },
       false
-    );
+    )
   },
   methods: {
     handleClickOnMenu() {
-      this.menuOpened = !this.menuOpened;
+      this.menuOpened = !this.menuOpened
       setTimeout(() => {
-        this.route = window.location.hash;
-      }, 0);
-      this.$emit("menu");
-    },
-  },
-};
+        this.route = window.location.hash
+      }, 0)
+      this.$emit("menu")
+    }
+  }
+}
 </script>
 
 <style scoped lang="scss">
-@import "../utils/Colors.scss";
+@import "~/assets/styles/Colors.scss";
 $main-font: "Calibre", -apple-system, system-ui, sans-serif;
 $monospace: "SF Mono", monospace;
 header {
@@ -140,8 +140,12 @@ header.top {
   backdrop-filter: blur(0px);
 }
 
-.logo-container img {
-  width: 45px;
+.logo-container {
+  svg,
+  img {
+    width: 45px;
+    height: 45px;
+  }
 }
 
 .menu-btn {
@@ -249,12 +253,13 @@ header.top {
 .menu-item a {
   text-decoration: none;
   color: $gray;
-  font-family: monospace;
-  font-size: 2.4rem;
+  font-family: $monospace;
+  font-size: 2rem;
 }
 
 .resume {
   color: $main-color;
+  cursor: pointer;
   background-color: transparent;
   font-size: 1.4rem;
   font-family: $monospace;

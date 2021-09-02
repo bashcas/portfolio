@@ -19,9 +19,19 @@
       </div>
     </div>
     <div class="project-content" :class="{ backwards: index % 2 != 0 }">
-      <p class="featured" :class="{ end: index % 2 == 0 }">Featured Project</p>
-      <h3 :class="{ end: index % 2 == 0 }">{{ title }}</h3>
-      <p class="description" :class="{ end: index % 2 == 0 }">
+      <p
+        class="featured"
+        :style="index % 2 == 0 ? { 'text-align': 'end' } : ''"
+      >
+        Featured Project
+      </p>
+      <h3 :style="index % 2 == 0 ? { 'text-align': 'end' } : ''">
+        {{ title }}
+      </h3>
+      <p
+        class="description"
+        :style="index % 2 == 0 ? { 'text-align': 'end' } : ''"
+      >
         {{ description }}
       </p>
       <ul class="technologies" :class="{ end: index % 2 == 0 }">
@@ -33,11 +43,14 @@
         <a :href="github"
           ><img
             src="https://img.icons8.com/ios/50/000000/github-2.png"
-            alt="github-logo"
+            alt="github"
+            title="Github"
         /></a>
         <a :href="web"
           ><img
             src="https://img.icons8.com/ios/50/000000/external-link-squared.png"
+            alt="external link"
+            title="External link"
         /></a>
       </div>
     </div>
@@ -49,8 +62,8 @@ export default {
   name: "ProjectItem",
   data() {
     return {
-      filter: true,
-    };
+      filter: true
+    }
   },
   props: {
     img: String,
@@ -59,13 +72,13 @@ export default {
     technologies: Array,
     github: String,
     web: String,
-    index: Number,
-  },
-};
+    index: Number
+  }
+}
 </script>
 
 <style lang="scss" scoped>
-@import "../utils/Colors.scss";
+@import "~/assets/styles/Colors.scss";
 $main-font: "Calibre", -apple-system, system-ui, sans-serif;
 $monospace: "SF Mono", monospace;
 .container {
@@ -83,7 +96,6 @@ $monospace: "SF Mono", monospace;
   width: 100%;
   height: 100%;
   cursor: pointer;
-  background-color: rgba($main-color, 0.2);
 }
 .project-image img {
   content: "";
@@ -96,21 +108,9 @@ $monospace: "SF Mono", monospace;
   border-radius: 4px;
 }
 
-.project-image:hover {
-  background-color: transparent;
-  .project-image-gray-filter {
-    filter: grayscale(0%) brightness(100%);
-  }
-}
-
 .project-image-container {
   position: relative;
   mix-blend-mode: multiply;
-  width: 100%;
-  height: 100%;
-}
-.project-image-gray-filter {
-  filter: grayscale(100%) contrast(1) brightness(90%);
   width: 100%;
   height: 100%;
 }
@@ -152,8 +152,8 @@ h3 {
 }
 
 .project-links a img {
-  filter: invert(91%) sepia(19%) saturate(619%) hue-rotate(329deg)
-    brightness(104%) contrast(106%);
+  filter: invert(98%) sepia(78%) saturate(283%) hue-rotate(79deg)
+    brightness(103%) contrast(105%);
   width: 32px;
   cursor: pointer;
   transition: transform 0.5s ease-in-out;
@@ -161,19 +161,14 @@ h3 {
 
 .project-links a img:hover {
   transform: translate(2px, -3px);
-  filter: invert(85%) sepia(45%) saturate(2777%) hue-rotate(351deg)
-    brightness(104%) contrast(101%);
+  filter: invert(82%) sepia(32%) saturate(6215%) hue-rotate(111deg)
+    brightness(95%) contrast(101%);
 }
 
 @media only screen and(min-width: 768px) {
   .project-links.end,
   .technologies.end {
     justify-content: flex-end;
-  }
-  .featured.end,
-  .description.end,
-  h3.end {
-    text-align: end;
   }
   .container {
     display: grid;
@@ -217,6 +212,17 @@ h3 {
     object-fit: cover;
     height: auto;
     filter: blur(0);
+  }
+  .project-image-gray-filter {
+    filter: grayscale(100%) contrast(1) brightness(90%);
+    width: 100%;
+    height: 100%;
+  }
+  .project-image:hover {
+    background-color: transparent;
+    .project-image-gray-filter {
+      filter: grayscale(0%) brightness(100%);
+    }
   }
   .project-link {
     position: absolute;

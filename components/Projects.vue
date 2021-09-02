@@ -41,19 +41,12 @@
   </section>
 </template>
 <script>
-import ProjectItem from "../components/ProjectItem.vue";
-import PxTitle from "../components/PxTitle.vue";
 export default {
-  name: "Projects",
-  components: {
-    ProjectItem,
-    PxTitle,
-  },
-};
+  name: "Projects"
+}
 </script>
 <style scoped lang="scss">
-@import "../utils/Colors.scss";
-
+@import "~/assets/styles/Colors.scss";
 section {
   padding: 2em 0;
   padding-top: 12em;

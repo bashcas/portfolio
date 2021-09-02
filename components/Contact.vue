@@ -9,30 +9,38 @@
           ambitious and large projects. Don't hesitate to fill-up the form
           below.
         </p>
-        <form class="form">
+        <form class="form" v-on:submit="sendData">
           <div class="form-name-container">
-            <input type="text" class="form-name" placeholder="Name" />
+            <input
+              type="text"
+              class="form-name"
+              placeholder="Name"
+              name="name"
+            />
           </div>
           <div class="form-email-container">
             <input
               type="email"
-              name=""
-              id=""
+              name="email"
               class="form-email"
               placeholder="Email"
             />
           </div>
           <div class="form-subject-container">
-            <input type="text" class="form-subject" placeholder="Subject" />
+            <input
+              type="text"
+              class="form-subject"
+              placeholder="Subject"
+              name="subject"
+            />
           </div>
           <div class="form-message-container">
             <textarea
-              name=""
-              id=""
               cols="30"
               rows="10"
               class="form-message"
               placeholder="Message"
+              name="message"
             ></textarea>
           </div>
           <input type="submit" value="Send message" class="form-submit" />
@@ -43,25 +51,39 @@
 </template>
 
 <script>
-import PxTitle from "../components/PxTitle.vue";
 export default {
   name: "Contact",
-  components: {
-    PxTitle,
-  },
   mounted() {
-    const form = document.querySelector(".form");
-    form.addEventListener("focusin", (e) => {
-      e.path[1].classList.add("focus");
-    });
-    form.addEventListener("focusout", (e) => {
-      e.path[1].classList.remove("focus");
-    });
+    const form = document.querySelector(".form")
+    form.addEventListener("focusin", e => {
+      e.path[1].classList.add("focus")
+    })
+    form.addEventListener("focusout", e => {
+      e.path[1].classList.remove("focus")
+    })
   },
-};
+  methods: {
+    async sendData(e) {
+      e.preventDefault()
+      const data = new FormData(e.target)
+      const response = await fetch("/api/email/send", {
+        method: "POST",
+        body: data
+      })
+      this.showFeedbackMessage(response.status)
+    },
+    showFeedbackMessage(status) {
+      if (status == 200) {
+        this.$emit("feedback", "Your email was sent successfully")
+      } else {
+        this.$emit("feedback", "An error has occured")
+      }
+    }
+  }
+}
 </script>
 <style lang="scss" scoped>
-@import "../utils/Colors.scss";
+@import "~/assets/styles/Colors.scss";
 $main-font: "Calibre", -apple-system, system-ui, sans-serif;
 $monospace: "SF Mono", monospace;
 
@@ -86,15 +108,15 @@ section {
   input,
   textarea {
     padding: 15px 20px;
-    background: #2b2b2b;
+    background: $background-color-light;
     outline: none;
     border: none;
     border-radius: 5px;
-    color: #8d8d8d;
+    color: $gray;
     font-family: $monospace;
     &:placeholder,
     &:-ms-input-placeholder {
-      color: #8d8d8d;
+      color: $gray;
       font-family: $monospace;
     }
   }
