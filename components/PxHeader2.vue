@@ -131,6 +131,7 @@ header {
   transition: all 0.3s ease-in-out;
   box-shadow: 0 10px 30px -10px $shadow;
   backdrop-filter: blur(10px);
+  background-color: rgba($background-color, 0.85);
 }
 header.hidden {
   transform: translateY(-100%);

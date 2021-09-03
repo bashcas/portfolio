@@ -114,13 +114,13 @@ section {
     border-radius: 5px;
     color: $gray;
     font-family: $monospace;
-    &:placeholder,
-    &:-ms-input-placeholder {
-      color: $gray;
-      font-family: $monospace;
-    }
   }
 }
+input::placeholder,
+textarea::placeholder {
+  color: rgba($gray, 0.6);
+}
+
 .form-name-container {
   position: relative;
   grid-area: 1 / 1 / 1 / 3;
