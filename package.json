@@ -6,7 +6,8 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate"
+    "generate": "nuxt generate",
+    "heroku-postbuild": "npm run build"
   },
   "dependencies": {
     "aos": "^2.3.4",
@@ -24,5 +25,9 @@
     "sass-loader": "^10.2.0",
     "webpack": "^4.46.0"
   },
-  "type": "module"
+  "engines": {
+    "node": ">=14.17.5",
+    "npm": ">=7.21.1"
+  },
+  "engineStrict": true
 }

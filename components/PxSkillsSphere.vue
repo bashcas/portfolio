@@ -4,7 +4,7 @@
 
 <script>
 import * as THREE from "three"
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.cjs"
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js"
 import font from "../assets/fonts/three/helvetiker_regular.typeface.json"
 let camera, scene, renderer, canvas, sphere, controls
 export default {

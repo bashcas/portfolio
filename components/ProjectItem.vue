@@ -196,7 +196,7 @@ h3 {
     max-width: 700px;
     height: auto;
     opacity: 1;
-    background-color: $main-color;
+    background-color: rgba($main-color, 0.7);
     transition: background-color 0.2s ease-in-out;
   }
 
