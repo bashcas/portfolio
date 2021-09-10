@@ -33,13 +33,12 @@
   </div>
 </template>
 <style lang="scss" scoped>
-@import "~/assets/styles/Colors.scss";
 .container {
   width: 100vw;
   height: 100vh;
   position: absolute;
   z-index: 200;
-  background-color: $background-color;
+  background-color: var(--background-color);
   display: flex;
   justify-content: center;
   align-items: center;

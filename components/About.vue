@@ -47,7 +47,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "~/assets/styles/Colors.scss";
 section {
   padding: 2em 0;
   min-height: 100vh;
@@ -60,10 +59,10 @@ section {
 }
 
 .paragraph {
-  color: $gray;
+  color: var(--gray);
   font-size: clamp(1.5rem, 5vw, 2rem);
   a {
-    color: $main-color;
+    color: var(--main-color);
     font-family: "Calibre", -apple-system, system-ui, sans-serif;
     text-decoration: none;
     &:hover {

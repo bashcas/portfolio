@@ -15,7 +15,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "~/assets/styles/Colors.scss";
 .email {
   width: 40px;
   position: fixed;
@@ -40,12 +39,12 @@ export default {
   letter-spacing: 0.1em;
   writing-mode: vertical-rl;
   text-decoration: none;
-  color: $lighter-gray;
+  color: var(--lighter-gray);
   transition: all 0.3s ease-in-out;
 }
 .email div a:hover {
   transform: translateY(-4px);
-  color: $main-color;
+  color: var(--main-color);
 }
 .email div::after {
   content: "";
@@ -53,6 +52,6 @@ export default {
   width: 1px;
   height: 90px;
   margin: 0px auto;
-  background-color: $gray;
+  background-color: var(--gray);
 }
 </style>

@@ -113,7 +113,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "~/assets/styles/Colors.scss";
 $main-font: "Calibre", -apple-system, system-ui, sans-serif;
 $monospace: "SF Mono", monospace;
 section {
@@ -132,21 +131,21 @@ h2 {
 }
 
 h1 {
-  color: $lighter-gray;
+  color: var(--lighter-gray);
 }
 
 h2 {
-  color: $gray;
+  color: var(--gray);
 }
 
 p {
-  color: $gray;
+  color: var(--gray);
 }
 
 h1::selection,
 h2::selection,
 p::selection {
-  background-color: $main-color;
+  background-color: var(--main-color);
 }
 
 .content-container {
@@ -155,7 +154,7 @@ p::selection {
 
 .greet {
   font-size: 1.6rem;
-  color: $main-color;
+  color: var(--main-color);
   margin-bottom: 20px;
   font-family: $monospace;
 }
@@ -171,9 +170,9 @@ p::selection {
   font-family: $monospace;
   padding: 1.5em 2em;
   background-color: transparent;
-  color: $main-color;
+  color: var(--main-color);
   outline: none;
-  border: 1px solid $main-color;
+  border: 1px solid var(--main-color);
   border-radius: 5px;
   transition: background-color 0.5s;
   cursor: pointer;
@@ -210,7 +209,7 @@ p::selection {
 }
 
 .call-to-action:hover {
-  background-color: rgba($main-color, 0.1);
+  background-color: rgba(var(--main-color), 0.1);
 }
 
 @media only screen and (min-width: 412px) {

@@ -78,14 +78,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "~/assets/styles/Colors.scss";
 $main-font: "Calibre", -apple-system, system-ui, sans-serif;
 $monospace: "SF Mono", monospace;
+
 .container {
   position: relative;
   padding: 2em 3em;
   margin-bottom: 2em;
-  background-color: rgba($main-color, 0.05);
+  background-color: rgba(var(--main-color-rgb), 0.05);
 }
 .project-image {
   content: "";
@@ -118,18 +118,18 @@ $monospace: "SF Mono", monospace;
 h3 {
   font-size: 2.4rem;
   margin-bottom: 1.3em;
-  color: $lighter-gray;
+  color: var(--lighter-gray);
 }
 
 .featured {
   font-family: $monospace;
-  color: $main-color;
+  color: var(--main-color);
   font-size: 1.5rem;
   margin: 10px 0;
 }
 .description {
   font-size: 1.8rem;
-  color: $gray;
+  color: var(--gray);
   margin-bottom: 1.5em;
 }
 
@@ -142,7 +142,7 @@ h3 {
 
 .technologies li {
   font-family: $monospace;
-  color: $lighter-gray;
+  color: var(--lighter-gray);
   font-size: 1.3rem;
 }
 
@@ -179,8 +179,8 @@ h3 {
   }
   .description {
     position: relative;
-    background-color: $background-color-light;
-    box-shadow: 0 10px 30px -15px $shadow;
+    background-color: var(--background-color-light);
+    box-shadow: 0 10px 30px -15px var(--shadow);
     padding: 25px;
     border-radius: 4px;
     z-index: 2;
@@ -196,7 +196,7 @@ h3 {
     max-width: 700px;
     height: auto;
     opacity: 1;
-    background-color: rgba($main-color, 0.7);
+    background-color: rgba(var(--main-color-rgb), 0.7);
     transition: background-color 0.2s ease-in-out;
   }
 

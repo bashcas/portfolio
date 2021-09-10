@@ -35,7 +35,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "~/assets/styles/Colors.scss";
 .social {
   position: fixed;
   width: 40px;
@@ -73,6 +72,6 @@ export default {
   width: 1px;
   height: 90px;
   margin: 0px auto;
-  background-color: $gray;
+  background-color: var(--gray);
 }
 </style>

@@ -26,7 +26,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "~/assets/styles/Colors.scss";
 $main-font: "Calibre", -apple-system, system-ui, sans-serif;
 $monospace: "SF Mono", monospace;
 h1,
@@ -41,7 +40,7 @@ h6 {
   align-items: center;
   white-space: nowrap;
   margin: 10px 0px 40px;
-  color: $lighter-gray;
+  color: var(--lighter-gray);
 }
 
 h1::before,
@@ -56,7 +55,7 @@ h6::before {
   font-family: $monospace;
   margin-right: 10px;
   font-size: clamp(1.5rem, 2vw, 2rem);
-  color: $main-color;
+  color: var(--main-color);
 }
 h1::after,
 h2::after,
@@ -71,6 +70,6 @@ h6::after {
   width: 100%;
   height: 1px;
   margin-left: 20px;
-  background-color: $lighter-gray;
+  background-color: var(--lighter-gray);
 }
 </style>

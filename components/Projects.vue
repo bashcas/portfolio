@@ -46,7 +46,6 @@ export default {
 }
 </script>
 <style scoped lang="scss">
-@import "~/assets/styles/Colors.scss";
 section {
   padding: 2em 0;
   padding-top: 12em;

@@ -1,7 +1,12 @@
 <template>
   <div>
     <!-- <px-loader /> -->
-    <px-header2 v-on:menu="blur" class="header" :screenWidth="screenWidth" />
+    <px-header2
+      v-on:trans="trans"
+      v-on:menu="blur"
+      class="header"
+      :screenWidth="screenWidth"
+    />
     <social v-if="screenWidth >= 768" />
     <main ref="main">
       <div class="wrapper" ref="wrapper">
@@ -74,6 +79,12 @@ export default {
         }
       }
     },
+    trans() {
+      document.documentElement.classList.add("transition")
+      window.setTimeout(() => {
+        document.documentElement.classList.remove("transition")
+      })
+    },
     displayFeedbackMessage(message) {
       this.feedback = message
       this.$refs.feedback.classList.add("show")
@@ -98,7 +109,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~/assets/styles/Colors.scss";
 $main-font: "Calibre", -apple-system, system-ui, sans-serif;
 $monospace: "SF Mono", monospace;
 * {
@@ -107,8 +117,36 @@ $monospace: "SF Mono", monospace;
   box-sizing: border-box;
 }
 
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  --main-color: #003627;
+  --main-color-rgb: 0, 54, 39;
+  --gray: #071010;
+  --lighter-gray: #003d2c;
+  --background-color: #ecfff8;
+  --background-color-light: #fff;
+  --shadow: rgb(1 2 2 / 70%);
+}
+html[data-theme="dark"] {
+  --main-color: #00e0a1;
+  --main-color-rgb: 0, 224, 161;
+  --gray: #dcfffc;
+  --lighter-gray: #98f1d8;
+  --background-color: #071010;
+  --background-color-light: #203333;
+  --shadow: rgb(1 2 2 / 70%);
+}
+html.transition,
+html.transition *,
+html.transition *:before,
+html.transition *:after {
+  transition: all 750ms !important;
+  transition-delay: 0 !important;
+}
+
 body {
-  background-color: $background-color;
+  background-color: var(--background-color);
   overflow-x: hidden;
   overflow-y: hidden;
 }
@@ -121,14 +159,9 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-thumb {
-  background: $main-color;
+  background: var(--main-color);
   border-radius: 5px;
   height: 10px;
-}
-
-html {
-  font-size: 62.5%;
-  scroll-behavior: smooth;
 }
 
 #app {
@@ -143,7 +176,7 @@ h5,
 h6 {
   font-family: $main-font;
   font-weight: 600;
-  color: $main-color;
+  color: var(--main-color);
 }
 p,
 li {
@@ -159,7 +192,7 @@ h4::selection,
 h5::selection,
 h6::selection,
 p::selection {
-  background-color: $main-color;
+  background-color: var(--main-color);
 }
 
 main {
@@ -191,9 +224,9 @@ a {
   border-radius: 4px;
   font-size: clamp(1.4rem, 3vw, 1.2rem);
   pointer-events: none;
-  color: $main-color;
-  outline: 1px solid $main-color;
-  background-color: $background-color-light;
+  color: var(--main-color);
+  outline: 1px solid var(--main-color);
+  background-color: var(--background-color-light);
   padding: 15px 20px;
   font-family: $monospace;
   bottom: 0;

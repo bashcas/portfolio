@@ -83,7 +83,6 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-@import "~/assets/styles/Colors.scss";
 $main-font: "Calibre", -apple-system, system-ui, sans-serif;
 $monospace: "SF Mono", monospace;
 
@@ -98,7 +97,7 @@ section {
 
 .form-container p {
   font-size: clamp(1.5rem, 5vw, 2rem);
-  color: $gray;
+  color: var(--gray);
   margin-bottom: 30px;
 }
 .form {
@@ -108,17 +107,17 @@ section {
   input,
   textarea {
     padding: 15px 20px;
-    background: $background-color-light;
+    background: var(--background-color-light);
     outline: none;
     border: none;
     border-radius: 5px;
-    color: $gray;
+    color: var(--gray);
     font-family: $monospace;
   }
 }
 input::placeholder,
 textarea::placeholder {
-  color: rgba($gray, 0.6);
+  color: rgba(var(--gray), 0.6);
 }
 
 .form-name-container {
@@ -155,8 +154,8 @@ textarea::placeholder {
   cursor: pointer;
   transition: 0.2s all ease-in-out;
   &:hover {
-    color: $main-color;
-    outline: 1px solid $main-color;
+    color: var(--main-color);
+    outline: 1px solid var(--main-color);
   }
 }
 .form div {
@@ -169,7 +168,7 @@ textarea::placeholder {
   left: -100%;
   width: 100%;
   height: 2px;
-  background-color: $main-color;
+  background-color: var(--main-color);
   transition: all 0.3s ease-in-out;
 }
 .form div.focus {
