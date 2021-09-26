@@ -10,17 +10,17 @@
       </p>
       <br />
       <p class="paragraph">
-        {{ screenWidth >= 1000 ? "On the right side" : "Below" }} you can
+        {{ screenWidth >= 1000 ? "On the right side," : "Below," }} you can
         appreciate some of the technologies with which I have worked. As I said
-        earlier, my main area of interest is the entire front-end spectrum.
-        However, I also enjoy developing on the backend side :)
+        earlier, my main area of interest is the entire front-end spectrum
+        (Especially when working with React and Vue). However, I also enjoy
+        developing on the backend side with Express and Django :)
       </p>
       <br />
       <p class="paragraph">
-        I like the tech world so much. I decided to go into web development
-        firstly because the first programming language that I play with was
-        Javascript, but I also have experience with other languages (at least
-        their syntaxis) like Python, Java, Kotlin, C++, etc.
+        If you're looking for someone to create successful, responsive websites
+        that are fast, easy to use, and built with best practices, I'm your man.
+        Don't hesitate to contact me.
       </p>
     </div>
     <div class="webgl-container" ref="webgl">

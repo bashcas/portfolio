@@ -1,6 +1,7 @@
 <template>
   <section id="home">
     <canvas
+      v-if="screenWidth >= 1280"
       id="canvas"
       ref="canvas"
       @mousemove="handleMouseMove($event)"
@@ -43,19 +44,32 @@ export default {
       },
       particles: [],
       hue: 0,
-      ctx: null
+      ctx: null,
+      requestId: 0,
+      changeWidthCount: 0
     }
   },
+
+  props: {
+    screenWidth: Number
+  },
+
   mounted() {
     //canvas background
-    this.$refs.canvas.width = window.innerWidth
-    this.$refs.canvas.height = window.innerHeight
-    this.ctx = this.$refs.canvas.getContext("2d")
-    this.animate()
-    window.addEventListener("resize", () => {
-      this.$refs.canvas.width = window.innerWidth
-      this.$refs.canvas.height = window.innerHeight
-    })
+    setTimeout(() => {
+      if (this.screenWidth >= 1280) {
+        this.$refs.canvas.width = window.innerWidth
+        this.$refs.canvas.height = window.innerHeight
+        this.ctx = this.$refs.canvas.getContext("2d")
+        this.animate()
+        window.addEventListener("resize", () => {
+          if (this.$refs.canvas != undefined) {
+            this.$refs.canvas.width = window.innerWidth
+            this.$refs.canvas.height = window.innerHeight
+          }
+        })
+      }
+    }, 5)
   },
 
   methods: {
@@ -83,20 +97,21 @@ export default {
         )
       )
     },
-    handleResize() {},
+
     animate() {
-      this.ctx.clearRect(
-        0,
-        0,
-        this.$refs.canvas.width,
-        this.$refs.canvas.height
-      )
-      // For trails
-      // ctx.fillStyle = "rgba(0, 0, 0, 0.02)"
-      // ctx.fillRect(0, 0, canvas.width, canvas.height)
-      this.handleParticles()
-      this.hue++
-      requestAnimationFrame(this.animate)
+      if (this.$refs.canvas != undefined) {
+        this.ctx.clearRect(
+          0,
+          0,
+          this.$refs.canvas.width,
+          this.$refs.canvas.height
+        )
+        this.handleParticles()
+        this.hue++
+        this.requestId = requestAnimationFrame(this.animate)
+      } else {
+        cancelAnimationFrame(this.requestId)
+      }
     },
     handleParticles() {
       for (let i = 0; i < this.particles.length; i++) {
