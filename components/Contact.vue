@@ -70,6 +70,7 @@ export default {
         method: "POST",
         body: data
       })
+      console.log(response)
       this.showFeedbackMessage(response.status)
     },
     showFeedbackMessage(status) {
