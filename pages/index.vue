@@ -7,7 +7,7 @@
       class="header"
       :screenWidth="screenWidth"
     />
-    <social v-if="screenWidth >= 768" />
+    <social v-if="screenWidth >= 768" :dark="dark" />
     <main ref="main">
       <div class="wrapper" ref="wrapper">
         <home
@@ -16,6 +16,7 @@
           data-aos-duration="1000"
           :screenWidth="screenWidth"
           class="section"
+          :dark="dark"
         />
         <about
           data-aos="fade"
@@ -23,6 +24,7 @@
           data-aos-duration="1000"
           :screenWidth="screenWidth"
           class="section"
+          :dark="dark"
         />
         <projects
           data-aos="fade"
@@ -30,6 +32,7 @@
           data-aos-duration="1000"
           :screenWidth="screenWidth"
           class="section"
+          :dark="dark"
         />
         <contact
           data-aos="fade"
@@ -57,7 +60,8 @@ export default {
       screenWidth: 0,
       loading: true,
       menuOpened: false,
-      feedback: "default"
+      feedback: "default",
+      dark: false
     }
   },
   methods: {
@@ -81,6 +85,7 @@ export default {
     },
     trans() {
       document.documentElement.classList.add("transition")
+      this.dark = !this.dark
       window.setTimeout(() => {
         document.documentElement.classList.remove("transition")
       })
@@ -120,22 +125,25 @@ $monospace: "SF Mono", monospace;
 html {
   font-size: 62.5%;
   scroll-behavior: smooth;
-  --main-color: #003627;
-  --main-color-rgb: 0, 54, 39;
-  --gray: #071010;
-  --lighter-gray: #003d2c;
-  --background-color: #ecfff8;
-  --background-color-light: #fff;
-  --shadow: rgb(1 2 2 / 70%);
+  --main-color: #1a73e8;
+  --main-color-rgb: 26, 115, 232;
+  --gray: #1b407c;
+  --light-gray: #122b52;
+  --lightest-gray: #0a192f;
+  --background-color: #ffffff;
+  --background-color-light: #f1f1f1;
+  --shadow: rgba(177, 208, 255, 0.7);
 }
+
 html[data-theme="dark"] {
-  --main-color: #00e0a1;
-  --main-color-rgb: 0, 224, 161;
-  --gray: #dcfffc;
-  --lighter-gray: #98f1d8;
-  --background-color: #071010;
-  --background-color-light: #203333;
-  --shadow: rgb(1 2 2 / 70%);
+  --main-color: #64ffda;
+  --main-color-rgb: 100, 255, 218;
+  --gray: #8892b0;
+  --light-gray: #a8b2d1;
+  --lightest-gray: #ccd6f6;
+  --background-color: #0a192f;
+  --background-color-light: #112240;
+  --shadow: rgba(2, 12, 27, 0.7);
 }
 html.transition,
 html.transition *,

@@ -23,7 +23,7 @@
         class="featured"
         :style="index % 2 == 0 ? { 'text-align': 'end' } : ''"
       >
-        Featured Project
+        {{ developing ? "Developing" : "Featured Project" }}
       </p>
       <h3 :style="index % 2 == 0 ? { 'text-align': 'end' } : ''">
         {{ title }}
@@ -42,12 +42,14 @@
       <div class="project-links" :class="{ end: index % 2 == 0 }">
         <a :href="github"
           ><img
+            :class="dark ? '' : 'dark'"
             src="https://img.icons8.com/ios/50/000000/github-2.png"
             alt="github"
             title="Github"
         /></a>
-        <a :href="web"
+        <a :href="web" target="_blank"
           ><img
+            :class="dark ? '' : 'dark'"
             src="https://img.icons8.com/ios/50/000000/external-link-squared.png"
             alt="external link"
             title="External link"
@@ -66,11 +68,13 @@ export default {
     }
   },
   props: {
+    dark: Boolean,
     img: String,
     title: String,
     description: String,
     technologies: Array,
     github: String,
+    developing: Boolean,
     web: String,
     index: Number
   }
@@ -97,13 +101,11 @@ $monospace: "SF Mono", monospace;
   height: 100%;
   cursor: pointer;
 }
-.project-image img {
+.project-image-container img {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
   height: 100%;
+  object-fit: cover;
   cursor: pointer;
   border-radius: 4px;
 }
@@ -113,12 +115,13 @@ $monospace: "SF Mono", monospace;
   mix-blend-mode: multiply;
   width: 100%;
   height: 100%;
+  overflow: hidden;
 }
 
 h3 {
   font-size: 2.4rem;
   margin-bottom: 1.3em;
-  color: var(--lighter-gray);
+  color: var(--lightest-gray);
 }
 
 .featured {
@@ -129,7 +132,7 @@ h3 {
 }
 .description {
   font-size: 1.8rem;
-  color: var(--gray);
+  color: var(--light-gray);
   margin-bottom: 1.5em;
 }
 
@@ -142,7 +145,7 @@ h3 {
 
 .technologies li {
   font-family: $monospace;
-  color: var(--lighter-gray);
+  color: var(--light-gray);
   font-size: 1.3rem;
 }
 
@@ -152,17 +155,28 @@ h3 {
 }
 
 .project-links a img {
-  filter: invert(98%) sepia(78%) saturate(283%) hue-rotate(79deg)
-    brightness(103%) contrast(105%);
+  filter: invert(85%) sepia(16%) saturate(599%) hue-rotate(194deg)
+    brightness(99%) contrast(95%);
   width: 32px;
   cursor: pointer;
   transition: transform 0.5s ease-in-out;
 }
 
+.project-links a img.dark {
+  filter: invert(7%) sepia(21%) saturate(4255%) hue-rotate(194deg)
+    brightness(94%) contrast(97%);
+}
+
 .project-links a img:hover {
   transform: translate(2px, -3px);
-  filter: invert(82%) sepia(32%) saturate(6215%) hue-rotate(111deg)
-    brightness(95%) contrast(101%);
+  filter: invert(92%) sepia(81%) saturate(478%) hue-rotate(83deg)
+    brightness(97%) contrast(109%);
+}
+
+.project-links a img.dark:hover {
+  transform: translate(2px, -3px);
+  filter: invert(38%) sepia(88%) saturate(1000%) hue-rotate(191deg)
+    brightness(87%) contrast(112%);
 }
 
 @media only screen and(min-width: 768px) {
@@ -208,15 +222,13 @@ h3 {
   }
 
   .project-image img {
+    width: 100%;
     position: static;
     object-fit: cover;
-    height: auto;
     filter: blur(0);
   }
   .project-image-gray-filter {
     filter: grayscale(100%) contrast(1) brightness(90%);
-    width: 100%;
-    height: 100%;
   }
   .project-image:hover {
     background-color: transparent;

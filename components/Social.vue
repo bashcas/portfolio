@@ -4,14 +4,20 @@
       <li>
         <a href="https://twitter.com/Sebastian_naits" target="_blank"
           ><div>
-            <img src="https://img.icons8.com/ios/50/000000/twitter--v2.png" />
+            <img
+              :class="dark ? '' : 'dark'"
+              src="https://img.icons8.com/ios/50/000000/twitter--v2.png"
+            />
           </div>
         </a>
       </li>
       <li>
         <a href="https://github.com/Sebastian-na" target="_blank"
           ><div>
-            <img src="https://img.icons8.com/ios/50/000000/github-2.png" />
+            <img
+              :class="dark ? '' : 'dark'"
+              src="https://img.icons8.com/ios/50/000000/github-2.png"
+            />
           </div>
         </a>
       </li>
@@ -21,6 +27,7 @@
           target="_blank"
           ><div>
             <img
+              :class="dark ? '' : 'dark'"
               src="https://img.icons8.com/ios/50/000000/linkedin-2--v1.png"
             /></div
         ></a>
@@ -30,7 +37,10 @@
 </template>
 <script>
 export default {
-  name: "Social"
+  name: "Social",
+  props: {
+    dark: Boolean
+  }
 }
 </script>
 
@@ -52,17 +62,28 @@ export default {
 }
 .social ul li img {
   width: 22px;
-  filter: invert(98%) sepia(78%) saturate(283%) hue-rotate(79deg)
-    brightness(103%) contrast(105%);
+  filter: invert(85%) sepia(16%) saturate(599%) hue-rotate(194deg)
+    brightness(99%) contrast(95%);
 
   transition: all 0.3s ease-in-out;
+}
+
+.social ul li img.dark {
+  filter: invert(7%) sepia(21%) saturate(4255%) hue-rotate(194deg)
+    brightness(94%) contrast(97%);
 }
 .social ul li a {
   padding: 10px;
 }
 .social ul li img:hover {
-  filter: invert(82%) sepia(32%) saturate(6215%) hue-rotate(111deg)
-    brightness(95%) contrast(101%);
+  filter: invert(92%) sepia(81%) saturate(478%) hue-rotate(83deg)
+    brightness(97%) contrast(109%);
+  transform: translateY(-7px);
+}
+
+.social ul li img.dark:hover {
+  filter: invert(38%) sepia(88%) saturate(1000%) hue-rotate(191deg)
+    brightness(87%) contrast(112%);
   transform: translateY(-7px);
 }
 

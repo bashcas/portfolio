@@ -23,9 +23,16 @@
       </p>
       <div class="button-container">
         <a href="#contact">
-          <button class="call-to-action">Get In Touch</button></a
+          <button class="call-to-action">
+            Get In Touch
+          </button></a
         >
-        <img class="arrow" src="../assets/images/left-arrow.png" alt="" />
+        <img
+          class="arrow"
+          :class="dark ? 'dark' : ''"
+          src="../assets/images/left-arrow.png"
+          alt=""
+        />
       </div>
     </div>
   </section>
@@ -51,7 +58,8 @@ export default {
   },
 
   props: {
-    screenWidth: Number
+    screenWidth: Number,
+    dark: Boolean
   },
 
   mounted() {
@@ -93,7 +101,7 @@ export default {
         new Particle(
           this.mouse.x,
           this.mouse.y,
-          `hsl(163, 100%, ${(this.hue % 100) + 20}%)`
+          `hsl(166, 100%, ${(this.hue % 100) + 50}%)`
         )
       )
     },
@@ -146,7 +154,7 @@ h2 {
 }
 
 h1 {
-  color: var(--lighter-gray);
+  color: var(--lightest-gray);
 }
 
 h2 {
@@ -199,13 +207,19 @@ p::selection {
   z-index: 5;
 }
 .arrow {
-  filter: invert(100%) sepia(0%) saturate(2%) hue-rotate(250deg)
-    brightness(108%) contrast(101%);
+  filter: invert(7%) sepia(21%) saturate(4255%) hue-rotate(194deg)
+    brightness(94%) contrast(97%);
   margin-left: 20px;
   width: 20px;
   animation: arrow-bounce 1s linear infinite;
   animation-direction: alternate;
 }
+
+.arrow.dark {
+  filter: invert(85%) sepia(16%) saturate(599%) hue-rotate(194deg)
+    brightness(99%) contrast(95%);
+}
+
 @keyframes arrow-bounce {
   from {
     transform: translateX(0%);

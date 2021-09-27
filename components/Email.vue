@@ -39,7 +39,7 @@ export default {
   letter-spacing: 0.1em;
   writing-mode: vertical-rl;
   text-decoration: none;
-  color: var(--lighter-gray);
+  color: var(--lightest-gray);
   transition: all 0.3s ease-in-out;
 }
 .email div a:hover {

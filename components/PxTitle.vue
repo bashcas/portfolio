@@ -40,7 +40,7 @@ h6 {
   align-items: center;
   white-space: nowrap;
   margin: 10px 0px 40px;
-  color: var(--lighter-gray);
+  color: var(--lightest-gray);
 }
 
 h1::before,
@@ -70,6 +70,6 @@ h6::after {
   width: 100%;
   height: 1px;
   margin-left: 20px;
-  background-color: var(--lighter-gray);
+  background-color: var(--lightest-gray);
 }
 </style>

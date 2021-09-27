@@ -24,7 +24,7 @@
       </p>
     </div>
     <div class="webgl-container" ref="webgl">
-      <px-skills-sphere :size="size" />
+      <px-skills-sphere :dark="dark" :size="size" />
     </div>
   </section>
 </template>
@@ -38,7 +38,8 @@ export default {
     }
   },
   props: {
-    screenWidth: Number
+    screenWidth: Number,
+    dark: Boolean
   },
   mounted() {
     this.size = this.$refs.webgl.clientWidth

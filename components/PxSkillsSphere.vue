@@ -38,7 +38,20 @@ export default {
       rotationY: -0.005,
       rotationZ: -0.005,
       textMeshes: [],
-      requestAnimationFrameID: Number
+      requestAnimationFrameID: Number,
+      textMaterial: {}
+    }
+  },
+  props: {
+    dark: Boolean
+  },
+  watch: {
+    dark: function() {
+      if (this.dark) {
+        this.textMaterial.color = new THREE.Color(0x64ffda)
+      } else {
+        this.textMaterial.color = new THREE.Color(0x1a73e8)
+      }
     }
   },
   methods: {
@@ -81,8 +94,8 @@ export default {
       scene.add(sphere)
       const helvetikerFont = new THREE.Font(font)
 
-      const textMaterial = new THREE.MeshStandardMaterial({
-        color: "#00e0a1"
+      this.textMaterial = new THREE.MeshStandardMaterial({
+        color: this.dark ? "#64ffda" : "#1a73e8"
       })
       const vertices = sphereGeometry.attributes.position.array
       for (let i = 0; i < this.techologies.length; i++) {
@@ -99,7 +112,7 @@ export default {
           bevelSegments: 0
         })
 
-        const textMesh = new THREE.Mesh(textGeometry, textMaterial)
+        const textMesh = new THREE.Mesh(textGeometry, this.textMaterial)
         textMesh.position.set(
           vertices[i3 * 4],
           vertices[i3 * 4 + 1],

@@ -17,8 +17,7 @@
     "multer": "^1.4.3",
     "nodemailer": "^6.6.3",
     "nuxt": "^2.15.7",
-    "three": "^0.132.2",
-    "vue-spinner": "^1.0.4"
+    "three": "^0.132.2"
   },
   "devDependencies": {
     "sass": "^1.38.2",

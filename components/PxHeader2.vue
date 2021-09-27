@@ -302,7 +302,7 @@ header.top {
 }
 .menu-item a {
   text-decoration: none;
-  color: var(--gray);
+  color: var(--lightest-gray);
   font-family: $monospace;
   font-size: 2rem;
 }

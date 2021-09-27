@@ -4,45 +4,56 @@
     <ul class="projects-list">
       <project-item
         title="Snake game"
-        description="A web app for visualizing personalized Spotify data. View your top artists, top tracks, recently played tracks, and detailed audio information about each track. Create and save new playlists of recommended tracks based on your existing playlists and more."
-        :technologies="['React.js', 'Spotify web api', 'Node.js']"
-        img="pexels.jpg"
+        description="A classic snake game built with the Canvas API of Javascript. You can also play with your friends by creating a room and sharing your room id. This web app uses sockets for real-time communication."
+        :technologies="['Typescript', 'Socket.io', 'Node.js']"
+        img="snake.jpg"
         :index="1"
+        :web="'https://modest-knuth-1fcbc0.netlify.app/'"
+        :github="'https://github.com/Sebastian-na/snake-game'"
+        :dark="dark"
       />
       <project-item
-        title="Snake game"
-        description="A web app for visualizing personalized Spotify data. View your top artists, top tracks, recently played tracks, and detailed audio information about each track. Create and save new playlists of recommended tracks based on your existing playlists and more."
-        :technologies="['React.js', 'Spotify web api', 'Node.js']"
-        img="Image1.png"
+        title="Gifts&Crafts E-commerce"
+        description="Gifts&Crafts is an enterprise dedicated to creating beautiful and heart-made gifts. This web app is an e-commerce to showcase and sell its products online."
+        :technologies="['React.js', 'Django', 'Postgresql']"
+        img="gifts.jpg"
         :index="2"
+        :developing="true"
+        :dark="dark"
       />
       <project-item
-        title="Snake game"
+        title="Coming soon"
         description="A web app for visualizing personalized Spotify data. View your top artists, top tracks, recently played tracks, and detailed audio information about each track. Create and save new playlists of recommended tracks based on your existing playlists and more."
         :technologies="['React.js', 'Spotify web api', 'Node.js']"
-        img="pexels.jpg"
+        img="comingsoon.jpg"
         :index="3"
+        :dark="dark"
       />
       <project-item
-        title="Snake game"
+        title="Coming soon"
         description="A web app for visualizing personalized Spotify data. View your top artists, top tracks, recently played tracks, and detailed audio information about each track. Create and save new playlists of recommended tracks based on your existing playlists and more."
         :technologies="['React.js', 'Spotify web api', 'Node.js']"
-        img="Image1.png"
+        img="comingsoon.jpg"
         :index="4"
+        :dark="dark"
       />
       <project-item
-        title="Snake game"
+        title="Coming soon"
         description="A web app for visualizing personalized Spotify data. View your top artists, top tracks, recently played tracks, and detailed audio information about each track. Create and save new playlists of recommended tracks based on your existing playlists and more."
         :technologies="['React.js', 'Spotify web api', 'Node.js']"
-        img="pexels.jpg"
+        img="comingsoon.jpg"
         :index="5"
+        :dark="dark"
       />
     </ul>
   </section>
 </template>
 <script>
 export default {
-  name: "Projects"
+  name: "Projects",
+  props: {
+    dark: Boolean
+  }
 }
 </script>
 <style scoped lang="scss">
