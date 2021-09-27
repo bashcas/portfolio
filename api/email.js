@@ -19,7 +19,8 @@ router.post("/send", (req, res) => {
   }
   transporter.sendMail(mailOptions, (err, data) => {
     if (err) {
-      res.statusCode = 503
+      console.log(err)
+      res.statusCode = 502
       res.send(err)
     } else {
       res.status(200)
