@@ -37,7 +37,8 @@ export default {
       rotationZ: -0.005,
       textMeshes: [],
       requestAnimationFrameID: Number,
-      textMaterial: {}
+      textMaterial: {},
+      sphereMaterial: {}
     }
   },
   props: {
@@ -47,8 +48,10 @@ export default {
     dark: function() {
       if (this.dark) {
         this.textMaterial.color = new THREE.Color(0x64ffda)
+        this.sphereMaterial.color = new THREE.Color(0xffffff)
       } else {
         this.textMaterial.color = new THREE.Color(0x1a73e8)
+        this.sphereMaterial.color = new THREE.Color(0x000000)
       }
     }
   },
@@ -81,19 +84,20 @@ export default {
        * Objects
        */
       const sphereGeometry = new THREE.SphereGeometry(20, 8, 8)
-      const sphereMaterial = new THREE.MeshStandardMaterial({
+      this.sphereMaterial = new THREE.MeshStandardMaterial({
         wireframe: true,
         transparent: true,
-        opacity: 0.025
+        opacity: 0.025,
+        color: 0x000000
       })
-      sphere = new THREE.Mesh(sphereGeometry, sphereMaterial)
+      sphere = new THREE.Mesh(sphereGeometry, this.sphereMaterial)
       sphere.rotation.x = 0
       sphere.rotation.y = 0
       scene.add(sphere)
       const helvetikerFont = new THREE.Font(font)
 
       this.textMaterial = new THREE.MeshStandardMaterial({
-        color: this.dark ? "#64ffda" : "#1a73e8"
+        color: this.dark ? 0x64ffda : 0x1a73e8
       })
       const vertices = sphereGeometry.attributes.position.array
       for (let i = 0; i < this.techologies.length; i++) {
