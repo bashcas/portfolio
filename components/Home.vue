@@ -17,9 +17,8 @@
       </h2>
       <p class="disclaimer">
         I'm a Bogotá-based web developer who specializes in building functional
-        and beautiful website interfaces. Although, I also know some backend.
-        Currently, I'm an active systems engineering student at Universidad
-        Nacional de Colombia.
+        and beautiful websites. Currently, I study systems engineering and
+        computer science at Universidad Nacional de Colombia.
       </p>
       <div class="button-container">
         <a href="#contact">
@@ -238,7 +237,7 @@ p::selection {
 }
 
 .call-to-action:hover {
-  background-color: rgba(var(--main-color), 0.1);
+  background-color: rgba(var(--main-color-rgb), 0.1);
 }
 
 @media only screen and (min-width: 412px) {
