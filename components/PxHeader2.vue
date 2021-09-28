@@ -314,10 +314,10 @@ header.top {
   font-size: 1.4rem;
   font-family: $monospace;
   border: 1px solid var(--main-color);
-  border-radius: 1px;
+  border-radius: 5px;
   padding: 1em 2em;
   &:hover {
-    background-color: rgba(var(--main-color), 0.1);
+    background-color: rgba(var(--main-rgb), 0.1);
   }
 }
 
