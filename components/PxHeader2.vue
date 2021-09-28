@@ -317,7 +317,7 @@ header.top {
   border-radius: 5px;
   padding: 1em 2em;
   &:hover {
-    background-color: rgba(var(--main-rgb), 0.1);
+    background-color: rgba(var(--main-color-rgb), 0.1);
   }
 }
 
