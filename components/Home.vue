@@ -100,7 +100,9 @@ export default {
         new Particle(
           this.mouse.x,
           this.mouse.y,
-          `hsl(166, 100%, ${(this.hue % 100) + 50}%)`
+          this.dark
+            ? `hsl(166, 100%, ${(this.hue % 100) + 50}%)`
+            : `hsl(214, 82%, ${(this.hue % 100) - 50}%)`
         )
       )
     },
