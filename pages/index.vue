@@ -11,32 +11,32 @@
     <main ref="main">
       <div class="wrapper" ref="wrapper">
         <home
-          data-aos="fade"
-          data-aos-delay="50"
+          data-aos="fade-up"
+          data-aos-delay="100"
           data-aos-duration="1000"
           :screenWidth="screenWidth"
           class="section"
           :dark="dark"
         />
         <about
-          data-aos="fade"
-          data-aos-delay="50"
+          data-aos="fade-up"
+          data-aos-delay="100"
           data-aos-duration="1000"
           :screenWidth="screenWidth"
           class="section"
           :dark="dark"
         />
         <projects
-          data-aos="fade"
-          data-aos-delay="50"
+          data-aos="fade-up"
+          data-aos-delay="100"
           data-aos-duration="1000"
           :screenWidth="screenWidth"
           class="section"
           :dark="dark"
         />
         <contact
-          data-aos="fade"
-          data-aos-delay="50"
+          data-aos="fade-up"
+          data-aos-delay="100"
           data-aos-duration="1000"
           :screenWidth="screenWidth"
           class="section"
@@ -69,17 +69,13 @@ export default {
       this.screenWidth = window.innerWidth
     },
     blur() {
-      if (this.screenWidth < 768) {
+      if (this.screenWidth < 850) {
         this.$refs.wrapper.classList.toggle("blur")
         this.menuOpened = !this.menuOpened
         if (this.menuOpened) {
-          document.body.style.position = "fixed"
-          document.body.style.top = `-${window.scrollY}px`
+          document.body.style.overflowY = "hidden"
         } else {
-          const scrollY = document.body.style.top
-          document.body.style.position = ""
-          document.body.style.top = ""
-          window.scrollTo(0, parseInt(scrollY || "0") * -1)
+          document.body.style.overflowY = "auto"
         }
       }
     },
@@ -200,7 +196,8 @@ h4::selection,
 h5::selection,
 h6::selection,
 p::selection {
-  background-color: var(--main-color);
+  background-color: var(--lightest-gray);
+  color: var(--light-gray);
 }
 
 main {

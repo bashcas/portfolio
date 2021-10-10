@@ -105,6 +105,7 @@ $monospace: "SF Mono", monospace;
   content: "";
   position: absolute;
   height: 100%;
+  width: 100%;
   object-fit: cover;
   cursor: pointer;
   border-radius: 4px;

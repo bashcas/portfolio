@@ -248,7 +248,7 @@ p::selection {
   }
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 850px) {
   .disclaimer {
     margin-top: 20px;
   }

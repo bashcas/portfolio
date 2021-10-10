@@ -40,13 +40,13 @@
       class="menu-btn"
       :class="{ open: menuOpened }"
       v-on:click="handleClickOnMenu()"
-      v-if="screenWidth < 768"
+      v-if="screenWidth < 850"
     >
       <div class="menu-btn__burguer"></div>
     </div>
     <nav
       class="menu-container"
-      :class="{ open: menuOpened && screenWidth < 768 }"
+      :class="{ open: menuOpened && screenWidth < 850 }"
     >
       <ul class="menu">
         <li class="menu-item">
@@ -168,7 +168,7 @@ header {
   align-items: center;
   padding: 0px 25px;
   height: 100px;
-  transition: all 0.3s ease-in-out;
+  transition: all 1s ease-in-out;
   box-shadow: 0 10px 30px -10px var(--shadow);
   backdrop-filter: blur(10px);
   background-color: rgba(var(--background-color), 0.85);
@@ -281,7 +281,7 @@ header.top {
   width: 80vw;
   transform: translate(100%);
   background-color: var(--background-color-light);
-  transition: all 0.1s ease-in-out;
+  transition: all 1s ease-out;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -327,7 +327,7 @@ header.top {
   }
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 850px) {
   header {
     padding: 3.5em 5em;
   }
@@ -360,6 +360,7 @@ input[type="checkbox"] {
   height: 0;
   width: 0;
   visibility: hidden;
+  position: absolute;
 }
 
 label {
@@ -392,16 +393,5 @@ input:checked + label {
 input:checked + label:after {
   left: calc(100% - 1px);
   transform: translateX(-100%);
-}
-
-label:active:after {
-  width: 130px;
-}
-
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
 }
 </style>
