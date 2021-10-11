@@ -170,7 +170,7 @@ textarea::placeholder {
   width: 100%;
   height: 2px;
   background-color: var(--main-color);
-  transition: all 0.3s ease-in-out;
+  transition: all 0.7s ease-in-out;
 }
 .form div.focus {
   &:after {

@@ -11,10 +11,10 @@
       <br />
       <p class="paragraph">
         {{ screenWidth >= 1000 ? "On the right side," : "Below," }} you can
-        appreciate some of the technologies with which I have worked. As I said
-        earlier, my main area of interest is the entire front-end spectrum
-        (Especially when working with React and Vue). However, I also enjoy
-        developing on the backend side with Express and Django :)
+        appreciate some of the technologies with which I have worked. My main
+        area of interest is the entire front-end spectrum (Especially when
+        working with React and Vue). However, I also enjoy developing on the
+        backend side with Express and Django :)
       </p>
       <br />
       <p class="paragraph">

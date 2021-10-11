@@ -16,9 +16,9 @@
         I build amazing experiences.
       </h2>
       <p class="disclaimer">
-        I'm a Bogotá-based web developer who specializes in building functional
-        and beautiful websites. Currently, I study systems engineering and
-        computer science at Universidad Nacional de Colombia.
+        I’m a web developer who specializes in creating beautiful and functional
+        websites. I’m currently studying Systems Engineering and Computer
+        Science at Universidad Nacional de Colombia.
       </p>
       <div class="button-container">
         <a href="#contact">

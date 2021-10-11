@@ -1,5 +1,11 @@
 <template>
-  <li class="container">
+  <li
+    class="container"
+    data-aos="zoom-in-up"
+    data-aos-anchor-placement="center-bottom"
+    data-aos-delay="100"
+    data-aos-duration="1000"
+  >
     <div
       class="project-image"
       :class="{ backwards: index % 2 != 0 }"
