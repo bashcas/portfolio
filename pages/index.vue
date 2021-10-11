@@ -11,7 +11,7 @@
     <main ref="main">
       <div class="wrapper" ref="wrapper">
         <home
-          data-aos="fade-up"
+          data-aos="zoom-in-up"
           data-aos-delay="100"
           data-aos-duration="1000"
           :screenWidth="screenWidth"
@@ -19,7 +19,8 @@
           :dark="dark"
         />
         <about
-          data-aos="fade-up"
+          data-aos="zoom-in-up"
+          data-aos-anchor-placement="center-bottom"
           data-aos-delay="100"
           data-aos-duration="1000"
           :screenWidth="screenWidth"
@@ -27,7 +28,7 @@
           :dark="dark"
         />
         <projects
-          data-aos="fade-up"
+          data-aos="zoom-in-up"
           data-aos-delay="100"
           data-aos-duration="1000"
           :screenWidth="screenWidth"
@@ -35,7 +36,8 @@
           :dark="dark"
         />
         <contact
-          data-aos="fade-up"
+          data-aos="zoom-in-up"
+          data-aos-anchor-placement="center-bottom"
           data-aos-delay="100"
           data-aos-duration="1000"
           :screenWidth="screenWidth"
