@@ -33,10 +33,12 @@
         :dark="dark"
       />
       <project-item
-        title="Coming soon"
-        description="A web app for visualizing personalized Spotify data. View your top artists, top tracks, recently played tracks, and detailed audio information about each track. Create and save new playlists of recommended tracks based on your existing playlists and more."
-        :technologies="['React.js', 'Spotify web api', 'Node.js']"
-        img="comingsoon.jpg"
+        title="Tooltip directive"
+        description="A vue directive to create tooltips very easily"
+        :technologies="['Babel.js', 'Vue', 'npm']"
+        img="npm-logo-sm.png"
+        :web="'https://www.npmjs.com/package/tooltip-directive'"
+        :github="'https://github.com/Sebastian-na/tooltip-directive'"
         :index="4"
         :dark="dark"
       />
