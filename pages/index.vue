@@ -92,8 +92,11 @@ export default {
       this.feedback = message
       this.$refs.feedback.classList.add("show")
       setTimeout(() => {
+        this.$refs.feedback.classList.add("go")
+      }, 5000)
+      setTimeout(() => {
         this.$refs.feedback.classList.remove("show")
-      }, 7000)
+      }, 6000)
     }
   },
   mounted() {
@@ -236,13 +239,39 @@ a {
   background-color: var(--background-color-light);
   padding: 15px 20px;
   font-family: $monospace;
-  bottom: 0;
+  overflow-x: hidden;
   right: 0;
+  bottom: 0;
   transform: translate(-42px, 50px);
-  transition: all 0.2s ease-in;
+  transition: all 0.4s ease-in;
+  &::after {
+    content: "";
+    position: absolute;
+    background-color: var(--main-color);
+    height: 4px;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+  }
+
+  &.show {
+    transform: translate(-42px, -30px);
+    &::after {
+      animation: feedbackAnimate 5s linear forwards;
+    }
+  }
+  &.go {
+    transform: translate(-42px, 50px);
+  }
 }
-.feedback-message.show {
-  transform: translate(-42px, -30px);
+
+@keyframes feedbackAnimate {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
 
 @media only screen and(min-width: 480px) {
