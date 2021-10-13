@@ -88,6 +88,7 @@ export default {
       }, 5000)
       setTimeout(() => {
         this.$refs.feedback.classList.remove("show")
+        this.$refs.feedback.classList.remove("go")
       }, 6000)
     }
   },
