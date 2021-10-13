@@ -1,8 +1,7 @@
 <template>
   <li
     class="container"
-    data-aos="zoom-in-up"
-    data-aos-anchor-placement="center-bottom"
+    data-aos="fade-up"
     data-aos-delay="100"
     data-aos-duration="1000"
   >
