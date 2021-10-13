@@ -54,18 +54,6 @@
       <ul class="menu">
         <li class="menu-item">
           <a
-            :class="{
-              highlighted: route == '#home' || route == ''
-            }"
-            href="#home"
-            v-on:click="handleClickOnMenu()"
-          >
-            <span class="number">00. </span>
-            <span>Home</span>
-          </a>
-        </li>
-        <li class="menu-item">
-          <a
             :class="{ highlighted: route == '#about' }"
             href="#about"
             v-on:click="handleClickOnMenu()"
