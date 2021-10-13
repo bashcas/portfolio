@@ -121,7 +121,7 @@ html {
   --main-color: #1a73e8;
   --main-color-rgb: 26, 115, 232;
   --gray: #1b407c;
-  --light-gray: #122b52;
+  --light-gray: #125bc7;
   --lightest-gray: #0a192f;
   --background-color: #ffffff;
   --background-color-light: #f1f1f1;
