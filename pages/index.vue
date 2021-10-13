@@ -120,9 +120,9 @@ html {
   scroll-behavior: smooth;
   --main-color: #1a73e8;
   --main-color-rgb: 26, 115, 232;
-  --gray: #1b407c;
-  --light-gray: #125bc7;
-  --lightest-gray: #0a192f;
+  --gray: #000000;
+  --light-gray: #0a192f;
+  --lightest-gray: #1a73e8;
   --background-color: #ffffff;
   --background-color-light: #f1f1f1;
   --shadow: rgba(177, 208, 255, 0.7);
