@@ -3,23 +3,30 @@
     <div>
       <px-title content="Me, Myself and &amp;" h="h2" n="'1'"></px-title>
       <p class="paragraph">
-        I'm a software engineer focused on the client-side of the web. My passion
-        for coding began when I was still in my last year of high school. I
-        started learning through courses and the development of
-        <a href="#projects">personal projects.</a>
+        Hi again! I want to tell you a little more about me. 
+        My passion for coding and all this tech world began when 
+        I was in my last year of high school. I started to learn 
+        programming through courses, and eventually, I began 
+        to develop some personal projects to practice what I learned.
       </p>
       <br />
       <p class="paragraph">
-        {{ screenWidth >= 1000 ? "On the right side," : "Below," }} you can
-        appreciate some of the technologies with which I have worked. My main
-        area of interest is the entire front-end spectrum (Especially when
-        working with React and Vue). However, I also enjoy developing on the
-        backend side with Express and Django :)
+        {{ screenWidth >= 1000 ? "On the right side," : "Below," }} you can appreciate
+         some of the technologies, libraries, and tools I have worked with. 
+         My main area of interest is the entire web development spectrum. 
+         However, I also enjoy developing apps for Android with Kotlin.
       </p>
       <br />
       <p class="paragraph">
-        If you're looking for someone to create successful, responsive websites
-        that are fast, easy to use, and built with best practices, I'm your man.
+        I have a deep enthusiasm for learning new things. Lately, 
+        I have been learning about data structures and algorithms 
+        through a specialization I'm taking from the University of San Diego.
+        (Currently studying algorithms on strings).
+      </p>
+      <br />
+      <p class="paragraph">
+        If you're looking for someone to build successful, responsive, easy-to-use, 
+        and fast applications (both web and mobile), I'm your man. 
         Don't hesitate to contact me.
       </p>
     </div>
