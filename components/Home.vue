@@ -16,7 +16,7 @@
       </h2>
       <p class="disclaimer">
         I’m a software engineer who specializes in creating good-looking and functional applications. 
-        Nowdays, I study Systems Enginering and Computer Science at Universidad Nacional de Colombia.
+        Nowadays, I study Systems Enginering and Computer Science at Universidad Nacional de Colombia.
       </p>
       <div class="button-container">
         <a href="#contact">

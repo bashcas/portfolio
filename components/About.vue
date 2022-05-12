@@ -3,7 +3,7 @@
     <div>
       <px-title content="Me, Myself and &amp;" h="h2" n="'1'"></px-title>
       <p class="paragraph">
-        I'm a web developer focused on the client-side of the web. My passion
+        I'm a software engineer focused on the client-side of the web. My passion
         for coding began when I was still in my last year of high school. I
         started learning through courses and the development of
         <a href="#projects">personal projects.</a>
