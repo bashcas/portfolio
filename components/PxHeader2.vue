@@ -35,7 +35,7 @@
       </div>
     </a>
 
-    <input type="checkbox" @change="changeTheme" id="switch" /><label
+    <input type="checkbox" @change="changeTheme" id="switch" ref="switch"/><label
       for="switch"
       >Toggle</label
     >
@@ -126,6 +126,7 @@ export default {
       },
       false
     )
+    this.$refs.switch.removeAttribute("checked")
   },
   methods: {
     handleClickOnMenu() {

@@ -64,7 +64,7 @@ export default {
     },
     blur() {
       if (this.screenWidth < 850) {
-        this.$refs.wrapper.classList.toggle("blur")
+        // this.$refs.wrapper.classList.toggle("blur")
         this.menuOpened = !this.menuOpened
         if (this.menuOpened) {
           document.body.style.overflowY = "hidden"
@@ -121,7 +121,7 @@ html {
   scroll-behavior: smooth;
   --main-color: #1a73e8;
   --main-color-rgb: 26, 115, 232;
-  --gray: #000000;
+  --gray: #26294c;
   --light-gray: #0a192f;
   --lightest-gray: #1a73e8;
   --background-color: #ffffff;

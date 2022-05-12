@@ -4,7 +4,6 @@
       v-if="screenWidth >= 1280"
       id="canvas"
       ref="canvas"
-      @mousemove="handleMouseMove($event)"
       @click="handleMouseClick($event)"
     ></canvas>
     <div class="content-container">
@@ -16,9 +15,8 @@
         I build amazing experiences.
       </h2>
       <p class="disclaimer">
-        I’m a web developer who specializes in creating beautiful and functional
-        websites. I’m currently studying Systems Engineering and Computer
-        Science at Universidad Nacional de Colombia.
+        I’m a software engineer who specializes in creating good-looking and functional applications. 
+        Nowdays, I study Systems Enginering and Computer Science at Universidad Nacional de Colombia.
       </p>
       <div class="button-container">
         <a href="#contact">
@@ -92,19 +90,6 @@ export default {
           )
         )
       }
-    },
-    handleMouseMove: function(e) {
-      this.mouse.x = e.x
-      this.mouse.y = e.y
-      this.particles.push(
-        new Particle(
-          this.mouse.x,
-          this.mouse.y,
-          this.dark
-            ? `hsl(166, 100%, ${(this.hue % 100) + 50}%)`
-            : `hsl(214, 82%, ${(this.hue % 100) - 50}%)`
-        )
-      )
     },
 
     animate() {
