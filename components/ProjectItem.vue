@@ -1,9 +1,6 @@
 <template>
   <li
     class="container"
-    data-aos="fade-up"
-    data-aos-delay="100"
-    data-aos-duration="1000"
   >
     <div
       class="project-image"

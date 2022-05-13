@@ -26,7 +26,11 @@
           class="section"
           :dark="dark"
         />
-        <projects :screenWidth="screenWidth" class="section" :dark="dark" />
+        <projects
+          data-aos="fade-up"
+          data-aos-delay="300"
+          data-aos-duration="1000"
+          :screenWidth="screenWidth" class="section" :dark="dark" />
         <contact
           data-aos="fade-up"
           data-aos-anchor-placement="center-bottom"
