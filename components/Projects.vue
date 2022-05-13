@@ -13,20 +13,10 @@
         :dark="dark"
       />
       <project-item
-        title="Gifts&Crafts E-commerce"
-        description="Gifts&Crafts is an enterprise dedicated to creating beautiful and heart-made gifts. This web app is an e-commerce to showcase and sell its products online."
-        :technologies="['React.js', 'Django', 'Postgresql']"
-        img="ecommerce.png"
-        :index="2"
-        :developing="true"
-        :dark="dark"
-      />
-      <project-item
         title="Cryptocurrencies"
         description="A web app for visualizing real time data about cryptocurrencies such as price, market capitalization, exchanges, variations, etc."
         :technologies="['Vue.js', 'Coincap API', 'Chart.js']"
         img="crypto.png"
-        :developing="true"
         :web="'https://cryptocurrencies-sage.vercel.app/'"
         :github="'https://github.com/Sebastian-na/cryptocurrencies'"
         :index="3"
@@ -34,7 +24,7 @@
       />
       <project-item
         title="Tooltip directive"
-        description="A vue directive to create tooltips very easily"
+        description="My first contribution to npm platform. A vue directive to create tooltips very easily."
         :technologies="['Babel.js', 'Vue', 'npm']"
         img="npm-logo-sm.png"
         :web="'https://www.npmjs.com/package/tooltip-directive'"
@@ -43,11 +33,21 @@
         :dark="dark"
       />
       <project-item
-        title="Coming soon"
-        description="A web app for visualizing personalized Spotify data. View your top artists, top tracks, recently played tracks, and detailed audio information about each track. Create and save new playlists of recommended tracks based on your existing playlists and more."
-        :technologies="['React.js', 'Spotify web api', 'Node.js']"
-        img="comingsoon.jpg"
+        title="Bookswapp"
+        description="A mobile app that allows students from Universidad Nacional de Colombia to exchange books. List the books you have and what you want, create swap requests, and exchange them."
+        :technologies="['Kotlin', 'Mongodb', 'Node.js']"
+        img="bookswapp.png"
         :index="5"
+        :dark="dark"
+        :github="'https://github.com/Sebastian-na/bookswapp'"
+      />
+      <project-item
+        title="Gifts&Crafts E-commerce"
+        description="Gifts&Crafts is an enterprise dedicated to creating beautiful and heart-made gifts. This web app is an e-commerce to showcase and sell its products online."
+        :technologies="['React.js', 'Django', 'Postgresql']"
+        img="ecommerce.png"
+        :index="2"
+        :developing="true"
         :dark="dark"
       />
     </ul>

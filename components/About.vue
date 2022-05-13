@@ -12,7 +12,8 @@
       <br />
       <p class="paragraph">
         {{ screenWidth >= 1000 ? "On the right side," : "Below," }} you can appreciate
-         some of the technologies, libraries, and tools I have worked with. 
+         some of the technologies, programming languages, and tools I have worked with. 
+         (I can't put all the libraries because there are tons of them). 
          My main area of interest is the entire web development spectrum. 
          However, I also enjoy developing apps for Android with Kotlin.
       </p>

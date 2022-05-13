@@ -45,14 +45,14 @@
         </li>
       </ul>
       <div class="project-links" :class="{ end: index % 2 == 0 }">
-        <a :href="github"
+        <a :href="github" target="_blank" v-if="github"
           ><img
             :class="dark ? '' : 'dark'"
             src="https://img.icons8.com/ios/50/000000/github-2.png"
             alt="github"
             title="Github"
         /></a>
-        <a :href="web" target="_blank"
+        <a :href="web" target="_blank" v-if="web"
           ><img
             :class="dark ? '' : 'dark'"
             src="https://img.icons8.com/ios/50/000000/external-link-squared.png"
@@ -235,6 +235,7 @@ h3 {
   }
   .project-image-gray-filter {
     filter: grayscale(100%) contrast(1) brightness(90%);
+    max-height: 600px;
   }
   .project-image:hover {
     background-color: transparent;
