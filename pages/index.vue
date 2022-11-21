@@ -1,45 +1,19 @@
 <template>
   <div>
     <!-- <px-loader /> -->
-    <px-header2
-      v-on:trans="trans"
-      v-on:menu="blur"
-      class="header"
-      :screenWidth="screenWidth"
-    />
+    <px-header2 v-on:trans="trans($event)" v-on:menu="blur" class="header" :screenWidth="screenWidth" />
     <social v-if="screenWidth >= 768" :dark="dark" />
     <main ref="main">
       <div class="wrapper" ref="wrapper">
-        <home
-          data-aos="fade-up"
-          data-aos-delay="100"
-          data-aos-duration="1000"
-          :screenWidth="screenWidth"
-          class="section"
-          :dark="dark"
-        />
-        <about
-          data-aos="fade-up"
-          data-aos-delay="100"
-          data-aos-duration="1000"
-          :screenWidth="screenWidth"
-          class="section"
-          :dark="dark"
-        />
-        <projects
-          data-aos="fade-up"
-          data-aos-delay="300"
-          data-aos-duration="1000"
-          :screenWidth="screenWidth" class="section" :dark="dark" />
-        <contact
-          data-aos="fade-up"
-          data-aos-anchor-placement="center-bottom"
-          data-aos-delay="100"
-          data-aos-duration="1000"
-          :screenWidth="screenWidth"
-          class="section"
-          v-on:feedback="displayFeedbackMessage($event)"
-        />
+        <home data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000" :screenWidth="screenWidth"
+          class="section" :dark="dark" />
+        <about data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000" :screenWidth="screenWidth"
+          class="section" :dark="dark" />
+        <projects data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000" :screenWidth="screenWidth"
+          class="section" :dark="dark" />
+        <contact data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-delay="100"
+          data-aos-duration="1000" :screenWidth="screenWidth" class="section"
+          v-on:feedback="displayFeedbackMessage($event)" />
       </div>
     </main>
     <px-footer />
@@ -77,9 +51,9 @@ export default {
         }
       }
     },
-    trans() {
+    trans(dark) {
       document.documentElement.classList.add("transition")
-      this.dark = !this.dark
+      this.dark = Boolean(dark)
       window.setTimeout(() => {
         document.documentElement.classList.remove("transition")
       })
@@ -114,6 +88,7 @@ export default {
 <style lang="scss">
 $main-font: "Calibre", -apple-system, system-ui, sans-serif;
 $monospace: "SF Mono", monospace;
+
 * {
   margin: 0;
   padding: 0;
@@ -143,6 +118,7 @@ html[data-theme="dark"] {
   --background-color-light: #112240;
   --shadow: rgba(2, 12, 27, 0.7);
 }
+
 html.transition,
 html.transition *,
 html.transition *:before,
@@ -156,6 +132,7 @@ body {
   overflow-x: hidden;
   overflow-y: hidden;
 }
+
 body.loaded {
   overflow-y: auto;
 }
@@ -174,6 +151,7 @@ body::-webkit-scrollbar-thumb {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 h1,
 h2,
 h3,
@@ -184,6 +162,7 @@ h6 {
   font-weight: 600;
   color: var(--main-color);
 }
+
 p,
 li {
   font-family: $main-font;
@@ -208,10 +187,12 @@ main {
   opacity: 0;
   transition: opacity 0.5s linear;
 }
+
 main.loaded {
   display: block;
   opacity: 1;
 }
+
 main span,
 a {
   font-family: $monospace, monospace;
@@ -222,6 +203,7 @@ a {
   margin: 0 auto;
   padding: 0 25px;
 }
+
 .wrapper.blur {
   filter: blur(2px);
 }
@@ -241,6 +223,7 @@ a {
   bottom: 0;
   transform: translate(-42px, 50px);
   transition: all 0.4s ease-in;
+
   &::after {
     content: "";
     position: absolute;
@@ -253,10 +236,12 @@ a {
 
   &.show {
     transform: translate(-42px, -30px);
+
     &::after {
       animation: feedbackAnimate 5s linear forwards;
     }
   }
+
   &.go {
     transform: translate(-42px, 50px);
   }
@@ -266,6 +251,7 @@ a {
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-100%);
   }
@@ -282,14 +268,17 @@ a {
     padding: 0 75px;
   }
 }
+
 @media only screen and(min-width: 1080px) {
   .social {
     left: 40px;
   }
+
   .email {
     right: 40px;
   }
 }
+
 @media only screen and(min-width: 1250px) {
   .wrapper {
     padding: 0 150px;

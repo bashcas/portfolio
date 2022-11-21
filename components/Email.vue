@@ -1,7 +1,7 @@
 <template>
   <div class="email">
     <div>
-      <a href="mailto:sebis.dev@gmail.com">sebis.dev@gmail.com</a>
+      <a href="mailto:sebitas.dev@gmail.com">sebitas.dev@gmail.com</a>
     </div>
   </div>
 </template>
@@ -28,6 +28,7 @@ export default {
   align-items: center;
   position: relative;
 }
+
 .email div a {
   display: inline-block;
   margin: 20px auto;
@@ -40,10 +41,12 @@ export default {
   color: var(--lightest-gray);
   transition: all 0.3s ease-in-out;
 }
+
 .email div a:hover {
   transform: translateY(-4px);
   color: var(--main-color);
 }
+
 .email div::after {
   content: "";
   display: block;

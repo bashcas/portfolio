@@ -1,39 +1,23 @@
 <template>
-  <li
-    class="container"
-  >
-    <div
-      class="project-image"
-      :class="{ backwards: index % 2 != 0 }"
-      @mouseenter="filter = false"
-      @mouseleave="filter = true"
-    >
+  <li class="container">
+    <div class="project-image" :class="{ backwards: index % 2 != 0 }" @mouseenter="filter = false"
+      @mouseleave="filter = true">
       <div class="project-image-container">
         <div class="project-image-gray-filter">
-          <img
-            :src="require(`../assets/images/${img}`)"
-            alt="img"
-            :class="{ grayscale_filter: filter }"
-          />
+          <img :src="require(`../assets/images/${img}`)" alt="img" :class="{ grayscale_filter: filter }" />
         </div>
 
         <a class="project-link" :href="web"></a>
       </div>
     </div>
     <div class="project-content" :class="{ backwards: index % 2 != 0 }">
-      <p
-        class="featured"
-        :style="index % 2 == 0 ? { 'text-align': 'end' } : ''"
-      >
+      <p class="featured" :style="index % 2 == 0 ? { 'text-align': 'end' } : ''">
         {{ developing ? "Developing" : "Featured Project" }}
       </p>
       <h3 :style="index % 2 == 0 ? { 'text-align': 'end' } : ''">
         {{ title }}
       </h3>
-      <p
-        class="description"
-        :style="index % 2 == 0 ? { 'text-align': 'end' } : ''"
-      >
+      <p class="description" :style="index % 2 == 0 ? { 'text-align': 'end' } : ''">
         {{ description }}
       </p>
       <ul class="technologies" :class="{ end: index % 2 == 0 }">
@@ -42,20 +26,13 @@
         </li>
       </ul>
       <div class="project-links" :class="{ end: index % 2 == 0 }">
-        <a :href="github" target="_blank" v-if="github"
-          ><img
-            :class="dark ? '' : 'dark'"
-            src="https://img.icons8.com/ios/50/000000/github-2.png"
-            alt="github"
-            title="Github"
-        /></a>
-        <a :href="web" target="_blank" v-if="web"
-          ><img
-            :class="dark ? '' : 'dark'"
-            src="https://img.icons8.com/ios/50/000000/external-link-squared.png"
-            alt="external link"
-            title="External link"
-        /></a>
+        <a :href="github" target="_blank" v-if="github"><img :class="dark ? '' : 'dark'"
+            src="https://img.icons8.com/ios/50/000000/github-2.png" alt="github" title="Github" /></a>
+        <a :href="github2" target="_blank" v-if="github2"><img :class="dark ? '' : 'dark'"
+            src="https://img.icons8.com/ios/50/000000/github-2.png" alt="github2" title="Github2" /></a>
+        <a :href="web" target="_blank" v-if="web"><img :class="dark ? '' : 'dark'"
+            src="https://img.icons8.com/ios/50/000000/external-link-squared.png" alt="external link"
+            title="External link" /></a>
       </div>
     </div>
   </li>
@@ -76,6 +53,7 @@ export default {
     description: String,
     technologies: Array,
     github: String,
+    github2: String,
     developing: Boolean,
     web: String,
     index: Number
@@ -93,6 +71,7 @@ $monospace: "SF Mono", monospace;
   margin-bottom: 2em;
   background-color: rgba(var(--main-color-rgb), 0.05);
 }
+
 .project-image {
   content: "";
   position: absolute;
@@ -103,6 +82,7 @@ $monospace: "SF Mono", monospace;
   height: 100%;
   cursor: pointer;
 }
+
 .project-image-container img {
   content: "";
   position: absolute;
@@ -133,6 +113,7 @@ h3 {
   font-size: 1.5rem;
   margin: 10px 0;
 }
+
 .description {
   font-size: 1.8rem;
   color: var(--light-gray);
@@ -158,35 +139,33 @@ h3 {
 }
 
 .project-links a img {
-  filter: invert(85%) sepia(16%) saturate(599%) hue-rotate(194deg)
-    brightness(99%) contrast(95%);
+  filter: invert(85%) sepia(16%) saturate(599%) hue-rotate(194deg) brightness(99%) contrast(95%);
   width: 32px;
   cursor: pointer;
   transition: transform 0.5s ease-in-out;
 }
 
 .project-links a img.dark {
-  filter: invert(7%) sepia(21%) saturate(4255%) hue-rotate(194deg)
-    brightness(94%) contrast(97%);
+  filter: invert(7%) sepia(21%) saturate(4255%) hue-rotate(194deg) brightness(94%) contrast(97%);
 }
 
 .project-links a img:hover {
   transform: translate(2px, -3px);
-  filter: invert(92%) sepia(81%) saturate(478%) hue-rotate(83deg)
-    brightness(97%) contrast(109%);
+  filter: invert(92%) sepia(81%) saturate(478%) hue-rotate(83deg) brightness(97%) contrast(109%);
 }
 
 .project-links a img.dark:hover {
   transform: translate(2px, -3px);
-  filter: invert(38%) sepia(88%) saturate(1000%) hue-rotate(191deg)
-    brightness(87%) contrast(112%);
+  filter: invert(38%) sepia(88%) saturate(1000%) hue-rotate(191deg) brightness(87%) contrast(112%);
 }
 
 @media only screen and(min-width: 768px) {
+
   .project-links.end,
   .technologies.end {
     justify-content: flex-end;
   }
+
   .container {
     display: grid;
     align-items: center;
@@ -194,6 +173,7 @@ h3 {
     background-color: transparent;
     padding: 2em 0;
   }
+
   .description {
     position: relative;
     background-color: var(--background-color-light);
@@ -202,9 +182,11 @@ h3 {
     border-radius: 4px;
     z-index: 2;
   }
+
   .project-content {
     grid-area: 1 / 6 / -1 / -1;
   }
+
   .project-image {
     position: relative;
     z-index: 1;
@@ -220,6 +202,7 @@ h3 {
   .project-image.backwards {
     grid-area: 1 / 7 / -1 / -1;
   }
+
   .project-content.backwards {
     grid-area: 1 / 1 / -1 / 8;
   }
@@ -230,16 +213,20 @@ h3 {
     object-fit: cover;
     filter: blur(0);
   }
+
   .project-image-gray-filter {
     filter: grayscale(100%) contrast(1) brightness(90%);
     max-height: 600px;
   }
+
   .project-image:hover {
     background-color: transparent;
+
     .project-image-gray-filter {
       filter: grayscale(0%) brightness(100%);
     }
   }
+
   .project-link {
     position: absolute;
     width: 100%;

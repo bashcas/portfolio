@@ -1,11 +1,6 @@
 <template>
   <section id="home">
-    <canvas
-      v-if="screenWidth >= 1280"
-      id="canvas"
-      ref="canvas"
-      @click="handleMouseClick($event)"
-    ></canvas>
+    <canvas v-if="screenWidth >= 1280" id="canvas" ref="canvas" @click="handleMouseClick($event)"></canvas>
     <div class="content-container">
       <p class="greet">Hi, my name is</p>
       <h1 class="heading">
@@ -15,21 +10,15 @@
         I build amazing experiences.
       </h2>
       <p class="disclaimer">
-        I’m a software engineer who specializes in creating good-looking and functional applications. 
-        Nowadays, I study Systems Enginering and Computer Science at Universidad Nacional de Colombia.
+        I’m a software engineer who specializes in creating good-looking and functional applications.
+        Nowadays, I study Systems Engineering and Computer Science at Universidad Nacional de Colombia.
       </p>
       <div class="button-container">
         <a href="#contact">
           <button class="call-to-action">
             Get In Touch
-          </button></a
-        >
-        <img
-          class="arrow"
-          :class="dark ? 'dark' : ''"
-          src="../assets/images/left-arrow.png"
-          alt=""
-        />
+          </button></a>
+        <img class="arrow" :class="dark ? 'dark' : ''" src="../assets/images/left-arrow.png" alt="" />
       </div>
     </div>
   </section>
@@ -78,7 +67,7 @@ export default {
   },
 
   methods: {
-    handleMouseClick: function(e) {
+    handleMouseClick: function (e) {
       this.mouse.x = e.x
       this.mouse.y = e.y
       for (let i = 0; i < 5; i++) {
@@ -124,6 +113,7 @@ export default {
 <style lang="scss" scoped>
 $main-font: "Calibre", -apple-system, system-ui, sans-serif;
 $monospace: "SF Mono", monospace;
+
 section {
   display: flex;
   flex-direction: column;
@@ -186,15 +176,16 @@ p::selection {
   transition: background-color 0.5s;
   cursor: pointer;
 }
+
 .button-container {
   display: flex;
   align-items: center;
   margin-top: 50px;
   z-index: 5;
 }
+
 .arrow {
-  filter: invert(7%) sepia(21%) saturate(4255%) hue-rotate(194deg)
-    brightness(94%) contrast(97%);
+  filter: invert(7%) sepia(21%) saturate(4255%) hue-rotate(194deg) brightness(94%) contrast(97%);
   margin-left: 20px;
   width: 20px;
   animation: arrow-bounce 1s linear infinite;
@@ -202,8 +193,7 @@ p::selection {
 }
 
 .arrow.dark {
-  filter: invert(85%) sepia(16%) saturate(599%) hue-rotate(194deg)
-    brightness(99%) contrast(95%);
+  filter: invert(85%) sepia(16%) saturate(599%) hue-rotate(194deg) brightness(99%) contrast(95%);
 }
 
 @keyframes arrow-bounce {
@@ -237,6 +227,7 @@ p::selection {
   .disclaimer {
     margin-top: 20px;
   }
+
   section {
     padding: 15em 2em 15em;
   }

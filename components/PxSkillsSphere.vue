@@ -25,7 +25,7 @@ export default {
         "Android Studio",
         "MongoDB",
         "MySQL",
-        "MariaDB",
+        "Rust",
         "Redux",
         "Django",
         "Git",
@@ -44,11 +44,13 @@ export default {
     dark: Boolean
   },
   watch: {
-    dark: function() {
+    dark: function () {
       if (this.dark) {
+        console.log(this.dark)
         this.textMaterial.color = new THREE.Color(0x64ffda)
         this.sphereMaterial.color = new THREE.Color(0xffffff)
       } else {
+        console.log("light")
         this.textMaterial.color = new THREE.Color(0x1a73e8)
         this.sphereMaterial.color = new THREE.Color(0x000000)
       }
@@ -215,4 +217,6 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+
+</style>
