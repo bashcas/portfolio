@@ -11,11 +11,10 @@
         :technologies="['Vue.js', 'Coincap API', 'Chart.js']" img="crypto.png"
         :web="'https://cryptocurrencies-sage.vercel.app/'" :github="'https://github.com/Sebastian-na/cryptocurrencies'"
         :index="3" :dark="dark" />
-      <project-item title="Tooltip directive"
-        description="My first contribution to npm platform. A vue directive to create tooltips very easily."
-        :technologies="['Babel.js', 'Vue', 'npm']" img="npm-logo-sm.png"
-        :web="'https://www.npmjs.com/package/tooltip-directive'"
-        :github="'https://github.com/Sebastian-na/tooltip-directive'" :index="4" :dark="dark" />
+      <project-item title="TSP Solver" description="A website that allows you to solve the Traveling Salesman Problem (TSP). You can select a set of points in the map and 
+        the server will compute the shortest path to visit all points and return to the starting point"
+        :technologies="['Rust', 'React', 'Google Maps API']" img="tsp.jpeg"
+        :github="'https://github.com/Sebastian-na/tsp'" :index="4" :dark="dark" />
       <project-item title="Bookswapp"
         description="A mobile app that allows students from Universidad Nacional de Colombia to exchange books. List the books you have and what you want, create swap requests, and exchange them."
         :technologies="['Kotlin', 'Mongodb', 'Node.js']" img="bookswapp.png" :index="5" :dark="dark"
