@@ -12,7 +12,7 @@
         :web="'https://cryptocurrencies-sage.vercel.app/'" :github="'https://github.com/Sebastian-na/cryptocurrencies'"
         :index="3" :dark="dark" />
       <project-item title="TSP Solver" description="A website that allows you to solve the Traveling Salesman Problem (TSP). You can select a set of points in the map and 
-        the server will compute the shortest path to visit all points and return to the starting point"
+        the server will compute the shortest path to visit all points and return to the starting point."
         :technologies="['Rust', 'React', 'Google Maps API']" img="tsp.jpeg"
         :github="'https://github.com/Sebastian-na/tsp'" :index="4" :dark="dark" />
       <project-item title="Bookswapp"
